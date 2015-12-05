@@ -1,0 +1,5 @@
+mixin link(spec)
+	- spec = spec || {}
+	- spec.class = spec.class || ''
+
+	a(href=spec.section)= spec.text

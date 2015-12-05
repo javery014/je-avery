@@ -1,0 +1,127 @@
+// book styles
+@book-height: 400px;
+@book-width: 750px;
+
+.book {
+	width: 100%;
+	max-width: @book-width;
+	height: @book-height;
+	position:relative;
+	display:inline-block;
+	overflow: scroll;
+	.left, .right {
+		position: relative;
+		width: 50%;
+		height: @book-height;
+		margin: 0px;
+	}
+	@media screen and (min-width: @tablet-min) {
+		overflow: unset;
+	}
+}
+
+.page {
+	width: 100%;
+	height: @book-height;
+	margin: 0px;
+	border: 2px solid gray;
+	background: #f9f9f9;
+	padding: 20px 30px;
+
+	@media screen and (min-width: @tablet-min) {
+		position: absolute;
+		width: 50%;
+		&:nth-child(even) {
+			right: 0;
+			border-bottom-right-radius: 5px;
+			border-top-right-radius: 5px;
+			transform-origin: left;
+		}
+		&:nth-child(odd) {
+			left: 0;
+			border-bottom-left-radius: 5px;
+			border-top-left-radius: 5px;
+			transform-origin: right;
+		}
+	}
+}
+
+.paging-controls {
+	text-align: center;
+	width: 100%;
+	margin-top: 50px;
+}
+
+.top {
+	z-index: 1;
+}
+
+.moving {
+	z-index: 2;
+}
+
+.flipping-left-page-right {
+	animation-name: leftFlipRight;
+	animation-duration: 1s;
+	animation-fill-mode: forwards;
+	animation-timing-function: ease-in;
+}
+
+.flipping-left-page-left {
+	animation-name: leftFlipLeft;
+	animation-duration: 1s;
+	animation-fill-mode: forwards;
+	animation-delay: 1s;
+	animation-timing-function: ease-out;
+}
+
+.flipping-right-page-left {
+	animation-name: rightFlipLeft;
+	animation-duration: 1s;
+	animation-fill-mode: forwards;
+	animation-timing-function: ease-in;
+}
+
+.flipping-right-page-right {
+	animation-name: rightFlipRight;
+	animation-duration: 1s;
+	animation-fill-mode: forwards;
+	animation-delay: 1s;
+	animation-timing-function: ease-out;
+}
+
+@keyframes leftFlipLeft {
+  0% {
+    transform: perspective(3000px) rotateY(90deg);
+  }
+  100% {
+    transform: perspective(3000px) rotateY(0deg);
+  }
+}
+
+@keyframes leftFlipRight {
+  0% {
+    transform: perspective(3000px) rotateY(0deg);
+  }
+  100% {
+    transform: perspective(3000px) rotateY(90deg);
+  }
+}
+
+@keyframes rightFlipLeft {
+  0% {
+    transform: perspective(3000px) rotateY(0deg);
+  }
+  100% {
+    transform: perspective(3000px) rotateY(-90deg);
+  }
+}
+
+@keyframes rightFlipRight {
+  0% {
+    transform: perspective(3000px) rotateY(-90deg);
+  }
+  100% {
+    transform: perspective(3000px) rotateY(0deg);
+  }
+}

@@ -1,0 +1,16 @@
+extends _layouts/base
+
+include _modules/link/link
+include _modules/nav/nav
+include _modules/section/section
+include _modules/nav-element/nav-element
+include _modules/book/book
+
+block content
+	.container
+		+nav()
+		section#our-story
+			+book()
+		section#venue
+		section#registry
+		section#rsvp

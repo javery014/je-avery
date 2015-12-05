@@ -1,0 +1,13 @@
+include ../link/link
+mixin nav-element(spec)
+	- spec = spec || {}
+	- spec.class = spec.class || ''
+
+	li.nav-element&attributes(attributes)
+		.border
+		if spec.type == 'section-link'
+			+link(spec.content)
+		else if spec.type == 'image'
+			//- +image(spec.content)
+			| J&E
+
