@@ -14,3 +14,15 @@ block content
 		section#venue
 		section#registry
 		section#rsvp
+			form(name="contact" action="thank-you" netlify)
+				p
+					label Your Name:
+					input(type="text" name="name")
+				p
+					label Your Email
+					input(type="email" name="email")
+				p
+					labelMessage
+					textarea(name="message")
+				p
+					button Send
