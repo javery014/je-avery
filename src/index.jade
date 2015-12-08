@@ -5,6 +5,7 @@ include _modules/nav/nav
 include _modules/section/section
 include _modules/nav-element/nav-element
 include _modules/book/book
+include _modules/rsvp/rsvp
 
 block content
 	.container
@@ -14,15 +15,5 @@ block content
 		section#venue
 		section#registry
 		section#rsvp
-			form(name="contact" action="thank-you" netlify)
-				p
-					label Your Name:
-					input(type="text" name="name")
-				p
-					label Your Email
-					input(type="email" name="email")
-				p
-					labelMessage
-					textarea(name="message")
-				p
-					button Send
+			+rsvp()
+

@@ -13,7 +13,8 @@ var Link = function() {
 		speed: 750,
 		autoCoefficient: 1,
 		beforeScroll: function() {
-			nav.toggleNav();
+			if (window.innerWidth < window.tabletMin)
+				nav.toggleNav();
 		}
 	});
 };

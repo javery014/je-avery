@@ -1,0 +1,17 @@
+mixin rsvp(spec)
+	- spec = spec || {}
+	- spec.__class = spec.__class || ''
+
+	.rsvp-container
+		.rsvp-inner
+			#first-page
+				form(id="fetch-name" name="fetchName")
+					p.first-name
+						input(type="text" id="firstName" name="firstName" placeholder="First Name")
+					p.last-name
+						input(type="text" id="lastName" name="lastName" placeholder="Last Name")
+					p
+						button Send
+			#second-page
+				button.back Back
+				form(id="submit-rsvp" name="submitRsvp")
