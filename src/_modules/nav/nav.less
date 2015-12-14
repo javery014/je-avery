@@ -14,9 +14,15 @@ nav {
 			list-style: none;
 			margin: 0;
 			padding: 0;
+			.nav-element {
+				align-self: center;
+			}
 			.logo {
 				display: none;
 				margin: 0;
+				h1 {
+					margin: 0;
+				}
 				.ampersand {
 					color: @peach;
 				}
@@ -46,7 +52,6 @@ nav {
 		}
 	}
 	.mobile-logo {
-		margin-bottom: 20px;
 		text-shadow: -3px 1px @light-gray;
 		margin: 0;
 		.ampersand {
@@ -68,6 +73,8 @@ nav {
 		.nav-list-outter {
 			display: block;
 			.nav-list {
+				display: flex;
+				justify-content: center;
 				.logo {
 					display: inline-block;
 				}
