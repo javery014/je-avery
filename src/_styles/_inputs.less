@@ -1,0 +1,34 @@
+button {
+	background-color: @peach;
+	color: @white;
+	border: none;
+	padding: 10px 20px;
+}
+
+input {
+	border: 2px solid @peach;
+	padding: 10px;
+	text-align: center;
+	width: 100%;
+}
+
+input[type="checkbox"] {
+	width: auto;
+	display: none;
+	+label::before {
+		font-family: FontAwesome;
+		display: inline-block;
+		content: "\f096";
+		padding-right: 10px;
+		font-size: @large-font;
+		color: @white;
+	}
+	&:checked + label::before {
+		content: '\f046';
+		padding-right: 9px;
+	}
+}
+
+label {
+	color: @peach;
+}

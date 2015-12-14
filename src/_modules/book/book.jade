@@ -2,6 +2,9 @@ mixin book(spec)
 	- spec = spec || {}
 	- spec.__class = spec.__class || ''
 
+	.paging-controls.mobile-paging-controls
+		span.page-prev #[i.fa.fa-arrow-up] Previous
+		span.page-next Next #[i.fa.fa-arrow-down]
 	.book
 		.page#1
 			h3 Section 1
@@ -18,7 +21,8 @@ mixin book(spec)
 		.page#6
 			p
 				| Section 3 description - Roof party kale chips bitters, migas shoreditch beard pinterest offal viral street art everyday carry. Kale chips pinterest biodiesel readymade, humblebrag helvetica paleo trust fund PBR&B leggings hammock cliche microdosing. Etsy mlkshk jean shorts, PBR&B farm-to-table iPhone neutra migas pour-over. Viral kale chips lomo, chartreuse ugh 8-bit keytar next level deep v whatever normcore. Chartreuse try-hard master cleanse fingerstache 90's. Trust fund poutine ugh, leggings pinterest wolf truffaut 8-bit quinoa craft beer ennui butcher humblebrag. Scenester direct trade dreamcatcher forage.
-	.paging-controls
-		button(id="page-prev" type="button") Previous
-		button(id="page-next" type="button") Next
+	.paging-controls.desktop-paging-controls
+			button.page-prev #[i.fa.fa-arrow-left] Previous
+			button.page-next Next #[i.fa.fa-arrow-right]
+			.clear
 

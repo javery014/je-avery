@@ -1,23 +1,49 @@
 // rsvp styles
+.rsvp-header {
+	color: white;
+	text-shadow: -5px 2px @navy-peach;
+}
 .rsvp-container {
 	width: 300px;
+	height: 400px;
 	text-align: left;
 	overflow: hidden;
+	perspective: 800px;
+	margin: 0 auto;
 	.rsvp-inner {
-		width: 200%;
+		width: 100%;
+		height: 100%;
+		position: relative;
 		transition: transform 0.5s;
-		#first-page {
-			margin-right: -5px;
+		transform-style: preserve-3d;
+		transition: transform 1s;
+		transform-origin: right center;
+		#firstPage {
+			position: absolute;
 			text-align: center;
-			width: 50%;
-			background-color: green;
+			width: 100%;
+			height: 100%;
 			display: inline-block;
+			backface-visibility: hidden;
+			background-color: @navy;
 		}
-		#second-page {
-			text-align: center;
-			width: 50%;
+		#secondPage {
+			position: absolute;
+			width: 100%;
+			height: 100%;
 			display: inline-block;
-			background-color: red;
+			background-color: @navy;
+			backface-visibility: hidden;
+			transform: rotateY(180deg);
+			h2 {
+				color: @peach;
+			}
+			p {
+				color: @peach;
+			}
+		}
+		&.flipped {
+			transform: translateX(-100%) rotateY(-180deg);
 		}
 	}
 }

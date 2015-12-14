@@ -9,9 +9,18 @@ var Rsvp = function() {
 	var rsvp = this;
 	this.lists = null;
 
+	var notAttendingTemplate = '<p><input type="checkbox" name="notAttending" id="notAttending"/><label for="notAttending">Not attending</label></p>';
+	var numGuestsTemplate = '<p><input type="text" name="numInParty" placeholder="Number attending in party"/></p>' ;
+	var plusOneTemplate = '<p><input type="text" name="plusOne" placeholder="Name of guest"/></p>' +
+		'<p data-input-type="plusOne"><input type="checkbox" name="noGuest"/><label for="noGuest">No guest</label>';
+	var couplesTemplate = '<p>Check who\'s attending</p>' +
+		'<p data-input-type="couple"><input type="checkbox" name="" /> <label for=""><span class="guestName"></span></label></p>' +
+		'<p data-input-type="couple"><input type="checkbox" name="" /> <label for=""><span class="guestName"></span></label></p>';
+	var submitTemplate = '<p><button type="submit">SUBMIT</button>';
+
 	$.ajax({
 		dataType: 'json',
-		url: 'x13kcvnsakdjt30ph8asdkjarj2.json',
+		url: 'j3289urjsklm3dk4okds.json',
 		success: function(data) {
 			rsvp.lists = data;
 			rsvp.numGuestsList = rsvp.lists.numGuests;
@@ -20,12 +29,15 @@ var Rsvp = function() {
 		}
 	});
 
+	this.flipForm = function(forward) {
+		if (forward) {
+
+		}
+	};
+
 	this.searchSimpleList = function(name, list) {
-		console.log(name);
-		console.log(list);
 		var found = false;
 		list.forEach(function(value, index, array) {
-			console.log(value);
 			if (name.toLowerCase() === value.toLowerCase()) {
 				found = true;
 			}
@@ -52,14 +64,29 @@ var Rsvp = function() {
 		var firstName = $('#firstName').val();
 		var lastName = $('#lastName').val();
 		var name = firstName + ' ' + lastName;
-
+		var secondPage = $('#secondPage')
 		var formInner = document.getElementsByClassName('rsvp-inner')[0];
+
 		if (rsvp.searchSimpleList(name, rsvp.numGuestsList)) {
-			formInner.style.transform = 'translateX(-300px)';
+			$(formInner).addClass('flipped');
+			$('#rsvpGreetingName').html(firstName);
+			$('#submitRsvp').html(notAttendingTemplate + numGuestsTemplate + submitTemplate);
 		} else if (rsvp.searchSimpleList(name,  rsvp.plusOnesList)) {
-			formInner.style.transform = 'translateX(-300px)';
+			$(formInner).addClass('flipped');
+			$('#rsvpGreetingName').html(firstName);
+			$('#submitRsvp').html(notAttendingTemplate + plusOneTemplate + submitTemplate);
+			var $plusOne = $('[data-input-type="plusOne"]');
+			$plusOne.find('label').attr('for', 'plusOne');
+			$plusOne.find('input').attr('id', 'plusOne');
 		} else if (rsvp.searchCouplesList(firstName, lastName, rsvp.couplesList)) {
-			formInner.style.transform = 'translateX(-300px)';
+			$(formInner).addClass('flipped');
+			$('#rsvpGreetingName').html(firstName);
+			$('#submitRsvp').html(notAttendingTemplate + couplesTemplate + submitTemplate);
+			$('[data-input-type="couple"]').each(function(index) {
+				var guestName = rsvp.couplesList[lastName.toLowerCase()][index];
+				$(this).find('label').html(guestName).attr('for', guestName);
+				$(this).find('input').attr('name', guestName).attr('id', guestName);
+			});
 		} else {
 			alert('not on the list...');
 		}
@@ -68,8 +95,7 @@ var Rsvp = function() {
 	});
 
 	$('.back').on('click', function() {
-		var formInner = document.getElementsByClassName('rsvp-inner')[0];
-		formInner.style.transform = 'translateX(0)';
+		$('.rsvp-inner').removeClass('flipped');
 	});
 };
 

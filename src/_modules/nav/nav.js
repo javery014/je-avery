@@ -7,10 +7,18 @@ var nav = undefined;
 var Nav = function() {
 	this.name = 'nav';
 	this.element = $('nav');
+	this.open = false;
+	this.nav = this;
 
 	this.toggleNav = function() {
 		$('.nav-list-outter').stop().slideToggle();
-		console.log($(this));
+		nav.open = !nav.open;
+		console.log(nav.open);
+		if (nav.open) {
+			$('nav').find('.mobile-logo').css('display', 'none');
+		} else {
+			$('nav').find('.mobile-logo').css('display', 'block');
+		}
 		$('nav').find('.fa').toggleClass('fa-angle-down');
 		$('nav').find('.fa').toggleClass('fa-angle-up');
 	};

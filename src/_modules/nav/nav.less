@@ -3,7 +3,8 @@ nav {
 	width: 100%;
 	text-align: center;
 	min-height: 50px;
-	background-color: gray;
+	background: @white;
+	border-bottom: 1px solid @gray;
 	position:fixed;
 	z-index: 10;
 	.nav-list-outter {
@@ -15,28 +16,48 @@ nav {
 			padding: 0;
 			.logo {
 				display: none;
+				margin: 0;
+				.ampersand {
+					color: @peach;
+				}
+				text-shadow: -3px 1px @light-gray;
 			}
 		}
 	}
 	.nav-control {
 		display: inline-block;
 		width: 40px;
-		height: 40px;
+		height: 20px;
 		line-height: 40px;
-		border-radius: 20px;
-		background-color: grey;
+		border-radius: 0px 0px 20px 20px;
+		background-color: @white;
 		vertical-align: baseline;
 		position: absolute;
 		bottom: -20px;
 		margin-left: -20px;
 		cursor: pointer;
+		border-right: 1px solid @gray;
+		border-left: 1px solid @gray;
+		border-bottom: 1px solid @gray;
 		i {
-			vertical-align: bottom;
-			color: white;
+			vertical-align: top;
+			color: @blackish;
+			line-height: 0.5;
 		}
 	}
 	.mobile-logo {
 		margin-bottom: 20px;
+		text-shadow: -3px 1px @light-gray;
+		margin: 0;
+		.ampersand {
+			color: @peach;
+		}
+	}
+	a {
+		text-decoration: none;
+		letter-spacing: .4em;
+		font-size: @small-font;
+		color: @blackish;
 	}
 }
 

@@ -25,7 +25,7 @@
 	min-height: @book-height;
 	margin: 0px;
 	border: 2px solid gray;
-	background: #f9f9f9;
+	background: @light-gray;
 	padding: 20px 30px;
 
 	@media screen and (min-width: @tablet-min) {
@@ -47,9 +47,45 @@
 }
 
 .paging-controls {
-	text-align: center;
+	&.desktop-paging-controls {
+		display: none;
+	}
 	width: 100%;
-	margin-top: 50px;
+	padding: 10px;
+	position: relative;
+	top: 25px;
+	z-index: 3;
+	max-width: 750px;
+	span {
+		cursor: pointer;
+		color: @peach;
+		opacity: .7;
+		&:hover {
+			opacity: 1;
+		}
+	}
+	.page-prev {
+		float: left;
+	}
+	.page-next {
+		float: right;
+	}
+	.clear {
+		clear: both;
+	}
+	@media screen and (min-width: @tablet-min) {
+		&.desktop-paging-controls {
+			display: block;
+			top: 0;
+			display: relative;
+			margin: 0 auto;
+			padding-left: 0;
+			padding-right: 0;
+		}
+		&.mobile-paging-controls {
+			display: none;
+		}
+	}
 }
 
 .top {

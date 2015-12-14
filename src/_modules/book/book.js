@@ -60,18 +60,26 @@ var Book = function(pages) {
 			afterScroll: function() {
 				book.smoothScrolling = false;
 				book.postSmoothScrolling = true;
+				if (book.mobile) {
+					// $('.paging-controls').css('top', $('.book').scrollTop());
+				}
 			}
 		});
 	};
 
-	document.getElementById('page-next').addEventListener('click', function() {
-		var bindedFlip = book.flipLeft.bind(book);
-		bindedFlip();
+	Array.prototype.forEach.call(document.getElementsByClassName('page-next'), function(v) {
+		console.log(v);
+		v.addEventListener('click', function() {
+			var bindedFlip = book.flipLeft.bind(book);
+			bindedFlip();
+		});
 	});
 
-	document.getElementById('page-prev').addEventListener('click', function() {
-		var bindedFlip = book.flipRight.bind(book);
-		bindedFlip();
+	Array.prototype.forEach.call(document.getElementsByClassName('page-prev'), function(v) {
+		v.addEventListener('click', function() {
+			var bindedFlip = book.flipRight.bind(book);
+			bindedFlip();
+		});
 	});
 
 	var pages = document.querySelectorAll('.page');
