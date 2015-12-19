@@ -4,6 +4,7 @@
 'use strict';
 
 var $ = require('jquery');
+var Imager = require('imager.js')
 
 var Link = require('../_modules/link/link');
 var getNav = require('../_modules/nav/nav');
@@ -17,4 +18,12 @@ $(function() {
   getNav();
   new Book();
   new Rsvp();
+  new Imager({
+  	availableWidths: [
+  		800, 1400
+  	],
+  	availablePixelRatios: [
+  		1, 1.5
+  	]
+  });
 });

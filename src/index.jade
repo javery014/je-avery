@@ -8,15 +8,20 @@ include _modules/book/book
 include _modules/rsvp/rsvp
 
 block content
+	+nav()
 	.container
-		+nav()
 		section#our-story
-			#heroImage
-				img(src="images/erin-josh.jpg")
-				.header-container
-					h1 OUR#[br/]STORY
+			.img-container
+				.heading
+					span the wedding of
+					h1 Josh #[span &] Erin
+				div.delayed-image-load(data-src="images/img-1-{width}{pixel_ratio}.jpg")
+			.header-container
+				h1.light-peach-shadow OUR#[br/]STORY
 			+book()
 		section#venue
+			.header-container
+				h1.light-peach-shadow THE#[br/]VENUE
 		section#registry
 		section#rsvp
 			+rsvp()

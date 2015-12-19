@@ -3,8 +3,8 @@ mixin book(spec)
 	- spec.__class = spec.__class || ''
 
 	.paging-controls.mobile-paging-controls
-		span.page-prev #[i.fa.fa-arrow-up] Previous
-		span.page-next Next #[i.fa.fa-arrow-down]
+		button.styless-btn.page-prev #[i.fa.fa-arrow-up] Previous
+		button.styless-btn.page-next Next #[i.fa.fa-arrow-down]
 	.book
 		.page#1
 			h3 Section 1
