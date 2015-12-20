@@ -85,12 +85,12 @@ p, input, h1, h2, h3, h4, h5, h6 {
 }
 
 #our-story{
-	font-size: .75em;
 	.img-container {
 		width: 100%;
 		position: relative;
 		text-align: left;
 		.heading {
+			font-size: .75em;
 			text-align: center;
 			position: absolute;
 			top: 50%;
@@ -126,6 +126,9 @@ p, input, h1, h2, h3, h4, h5, h6 {
 					display: inline-block;
 				}
 			}
+			@media (min-width: @tablet-min) {
+				font-size: 1.5em;
+			}
 		}
 		img {
 			max-width: 1600px;
@@ -135,8 +138,5 @@ p, input, h1, h2, h3, h4, h5, h6 {
 			max-height: 500px;
 			overflow: hidden;
 		}
-	}
-	@media (min-width: @tablet-min) {
-		font-size: 1.5em;
 	}
 }
