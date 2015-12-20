@@ -33,31 +33,31 @@ html, body {
 	text-align: center;
 	h1 {
 		display: inline-block;
-		font-size: 4vw;
 		border-top: 2px solid @peach;
 		border-bottom: 2px solid @peach;
-		&.peach-shadow {
-			text-shadow: -5px 2px @peach;
-		}
-		&.light-peach-shadow {
-			text-shadow: -5px 2px @light-peach;
-		}
+		font-size: 3em;
 	}
 }
 
 h1 {
-	font-size: 4vw;
+	&.peach-shadow {
+		text-shadow: -3px 2px @peach;
+	}
+	&.light-peach-shadow {
+		text-shadow: -3px 2px @light-peach;
+	}
 }
+
 h2 {
-	font-size: 3vw;
+	font-size: 2em;
 }
 
 p, input, h1, h2, h3, h4, h5, h6 {
 	font-family: @content-font;
 }
 
-button, a {
-	font-family: @action-font;
+.fancy-label-font, button, a{
+	font-family: @fancy-label-font;
 }
 
 .container {
@@ -94,12 +94,30 @@ button, a {
 			position: absolute;
 			top: 50%;
 			left: 50%;
-			width: 300px;
-			height: 50px;
-			margin-left: -150px;
-			margin-top: -25px;
+			width: 50vw;
+			margin-left: -25vw;
+			margin-top: -5vw;
 			z-index: 2;
 			color: white;
+			font-size: 2vw;
+			text-transform: uppercase;
+			span {
+				letter-spacing: .5vw;
+				font-size: 1vw;
+			}
+			h1 {
+				font-size: 5vw;
+				line-height: 5vw;
+				margin: .1vw 0;
+				text-shadow: -.25vw .15vw @black-peach;
+				.hero-amp {
+					font-size: 3vw;
+					margin-left: 1vw;
+					margin-right: 1vw;
+					vertical-align: middle;
+					display: inline-block;
+				}
+			}
 		}
 		img {
 			max-width: 1600px;
