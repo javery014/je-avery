@@ -85,6 +85,7 @@ p, input, h1, h2, h3, h4, h5, h6 {
 }
 
 #our-story{
+	font-size: .75em;
 	.img-container {
 		width: 100%;
 		position: relative;
@@ -94,34 +95,33 @@ p, input, h1, h2, h3, h4, h5, h6 {
 			position: absolute;
 			top: 50%;
 			left: 50%;
-			width: 50vw;
-			margin-left: -25vw;
-			margin-top: -5vw;
+			width: 50em;
+			margin-left: -25em;
+			margin-top: -5em;
 			z-index: 2;
 			color: white;
-			font-size: 2vw;
 			text-transform: uppercase;
 			.arrows {
-				margin-top: .3vw;
+				margin-top: .5em;
 				* {
 					display: block;
 					line-height: .5;
-					margin-bottom: .05vw;
+					margin-bottom: .05em;
 				}
 			}
 			span {
-				letter-spacing: .5vw;
-				font-size: 1vw;
+				letter-spacing: .25em;
+				font-size: 1em;
 			}
 			h1 {
-				font-size: 5vw;
-				line-height: 5vw;
-				margin: .1vw 0;
-				text-shadow: -.25vw .15vw @black-peach;
+				font-size: 4em;
+				margin: 0;
+					text-shadow: -.05em .025em @black-peach;
 				.hero-amp {
-					font-size: 3vw;
-					margin-left: 1vw;
-					margin-right: 1vw;
+					font-size: .5em;
+					margin-left: .25em;
+					margin-right: .25em;
+					margin-top: -.5em;
 					vertical-align: middle;
 					display: inline-block;
 				}
@@ -135,5 +135,8 @@ p, input, h1, h2, h3, h4, h5, h6 {
 			max-height: 500px;
 			overflow: hidden;
 		}
+	}
+	@media (min-width: @tablet-min) {
+		font-size: 1.5em;
 	}
 }
