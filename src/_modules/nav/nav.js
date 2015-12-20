@@ -13,7 +13,6 @@ var Nav = function() {
 	this.toggleNav = function() {
 		$('.nav-list-outter').stop().slideToggle();
 		nav.open = !nav.open;
-		console.log(nav.open);
 		if (nav.open) {
 			$('nav').find('.mobile-logo').css('display', 'none');
 		} else {

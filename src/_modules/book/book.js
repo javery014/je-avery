@@ -68,7 +68,6 @@ var Book = function(pages) {
 	};
 
 	Array.prototype.forEach.call(document.getElementsByClassName('page-next'), function(v) {
-		console.log(v);
 		v.addEventListener('click', function() {
 			var bindedFlip = book.flipLeft.bind(book);
 			bindedFlip();
@@ -107,7 +106,6 @@ var Book = function(pages) {
 				book.scrollToPage(book.currentPage);
 			}
 			book.spreadNum = book.currentPage % 2 === 0 ? book.currentPage/2 : (book.currentPage + 1)/2;
-			console.log(book.spreadNum);
 			book.pages.forEach(function(element, index, array) {
 				element.element.className = 'page';
 				if (element.pageNum === 2*book.spreadNum || element.pageNum === (2*book.spreadNum - 1)) {

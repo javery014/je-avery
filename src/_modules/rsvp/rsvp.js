@@ -5,7 +5,6 @@ var $ = require('jquery');
 // Constructor
 var Rsvp = function() {
 	this.name = 'rsvp';
-	console.log('%s module', this.name);
 	var rsvp = this;
 	this.lists = null;
 
