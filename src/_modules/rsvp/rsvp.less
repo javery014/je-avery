@@ -4,46 +4,54 @@
 	text-shadow: -5px 2px @navy-peach;
 }
 .rsvp-container {
-	width: 300px;
-	height: 400px;
-	text-align: left;
-	overflow: hidden;
-	perspective: 800px;
-	margin: 0 auto;
-	.rsvp-inner {
-		width: 100%;
-		height: 100%;
-		position: relative;
-		transition: transform 0.5s;
-		transform-style: preserve-3d;
-		transition: transform 1s;
-		transform-origin: right center;
-		#firstPage {
-			position: absolute;
-			text-align: center;
+	position: absolute;
+	background: linear-gradient(to right, rgba(255,255,255,0) 10%, @navy 30%, @navy 70%, rgba(255,255,255,0) 90%);
+	top: 25%;
+	height: 50%;
+	width: 100%;
+	.rsvp-outer {
+		display: inline-block;
+		width: 300px;
+		height: 400px;
+		text-align: left;
+		overflow: hidden;
+		perspective: 800px;
+		margin: 0 auto;
+		.rsvp-inner {
 			width: 100%;
 			height: 100%;
-			display: inline-block;
-			backface-visibility: hidden;
-			background-color: @navy;
-		}
-		#secondPage {
-			position: absolute;
-			width: 100%;
-			height: 100%;
-			display: inline-block;
-			background-color: @navy;
-			backface-visibility: hidden;
-			transform: rotateY(180deg);
-			h2 {
-				color: @peach;
+			position: relative;
+			transition: transform 0.5s;
+			transform-style: preserve-3d;
+			transition: transform 1s;
+			transform-origin: right center;
+			#firstPage {
+				position: absolute;
+				text-align: center;
+				width: 100%;
+				height: 100%;
+				display: inline-block;
+				backface-visibility: hidden;
+				background-color: @navy;
 			}
-			p {
-				color: @peach;
+			#secondPage {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				display: inline-block;
+				background-color: @navy;
+				backface-visibility: hidden;
+				transform: rotateY(180deg);
+				h2 {
+					color: @peach;
+				}
+				p {
+					color: @peach;
+				}
 			}
-		}
-		&.flipped {
-			transform: translateX(-100%) rotateY(-180deg);
+			&.flipped {
+				transform: translateX(-100%) rotateY(-180deg);
+			}
 		}
 	}
 }

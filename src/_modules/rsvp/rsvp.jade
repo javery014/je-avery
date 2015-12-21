@@ -3,21 +3,22 @@ mixin rsvp(spec)
 	- spec.__class = spec.__class || ''
 
 	.rsvp-container
-		.header-container
-			h1.rsvp-header RSVP
-		.rsvp-inner
-			#firstPage
-				form(id="fetch-name" name="fetchName")
-					p.first-name
-						input(id="firstName" type="text" name="firstName" placeholder="First Name")
-					p.last-name
-						input(type="text" id="lastName" name="lastName" placeholder="Last Name")
-					p.email
-						input(type="text" id="email" name="email" placeholder="Email")
-					p
-						button Submit
-			#secondPage
-				h2#rsvpGreeting Hi,&nbsp;
-					span#rsvpGreetingName
-				form(id="submitRsvp" name="submitRsvp")
+		.rsvp-outer
+			.header-container
+				h1.rsvp-header RSVP
+			.rsvp-inner
+				#firstPage
+					form(id="fetch-name" name="fetchName")
+						p.first-name
+							input(id="firstName" type="text" name="firstName" placeholder="First Name")
+						p.last-name
+							input(type="text" id="lastName" name="lastName" placeholder="Last Name")
+						p.email
+							input(type="text" id="email" name="email" placeholder="Email")
+						p
+							button Submit
+				#secondPage
+					h2#rsvpGreeting Hi,&nbsp;
+						span#rsvpGreetingName
+					form(id="submitRsvp" name="submitRsvp")
 
