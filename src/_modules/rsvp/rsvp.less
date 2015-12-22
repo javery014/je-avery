@@ -6,6 +6,9 @@
 .rsvp-container {
 	position: absolute;
 	background: linear-gradient(to right, rgba(255,255,255,0) 10%, @navy 30%, @navy 70%, rgba(255,255,255,0) 90%);
+	@media screen and (min-width: @tablet-min) {
+		background: linear-gradient(to right, rgba(255,255,255,0) 10%, @navy 35%, @navy 65%, rgba(255,255,255,0) 90%);
+	}
 	top: 25%;
 	left: 0;
 	height: 50%;
@@ -14,7 +17,8 @@
 		display: inline-block;
 		width: 100%;
 		max-width: 300px;
-		height: 400px;
+		height: 100%;
+		max-height: 500px;
 		text-align: left;
 		overflow: hidden;
 		perspective: 800px;
@@ -35,6 +39,10 @@
 				display: inline-block;
 				backface-visibility: hidden;
 				background-color: @navy;
+				button {
+					width: 50%;
+					margin: 0 auto;
+				}
 			}
 			#secondPage {
 				position: absolute;
@@ -46,27 +54,31 @@
 				backface-visibility: hidden;
 				transform: rotateY(180deg);
 				padding: 0px 20px;
+				button {
+					margin-top: 5px;
+					width: 100%;
+				}
+				.sub-text-field {
+					margin-left: 20px;
+				}
 				.guest-info {
 					padding-left: 40px;
-					.plus-one-container {
-						padding-left: 20px;
-					}
 					p {
 						line-height: 1em;
+						&.sub-label {
+							color: @peach;
+						}
 					}
 				}
 				#rsvpGreeting {
 					text-align: center;
+					text-transform: capitalize;
 				}
 				.border {
 					height:2px;
 					width: 100%;
 					transform: scaleX(0.5);
 					background-color: @peach;
-				}
-				#submit {
-					margin-top: 5px;
-					width: 100%;
 				}
 			}
 			&.flipped {

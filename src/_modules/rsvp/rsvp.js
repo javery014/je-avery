@@ -8,18 +8,25 @@ var Rsvp = function() {
 	var rsvp = this;
 	this.lists = null;
 
-	var notAttendingTemplate = '<p><input type="checkbox" name="notAttending" id="notAttending"/><label for="notAttending">Not attending</label></p>';
-	var numGuestsTemplate = '<p><input type="text" name="numInParty" placeholder="Number attending in party"/></p>' ;
-	var plusOneTemplate = '<p><input type="checkbox" name="attending" id="attending" /><label for="attending">Accepts with excitement</label></p>' +
+	var attendingTemplate =
+		'<p><input type="radio" name="attending" value="no" id="notAttending"/><label for="notAttending">Declines with regret</label></p>' +
+		'<p><input type="radio" name="attending" value="yes" id="attending" /><label for="attending">Accepts with excitement</label></p>';
+	var numGuestsTemplate =
+			'<p class="sub-text-field"><input type="text" name="numInParty" placeholder="Number attending in party"/></p>';
+	var plusOneTemplate =
 		'<div class="guest-info">' +
-			'<p><input type="checkbox" name="noGuest" id="noGuest" /><label for="noGuest">Won\'t be bringing a guest</label></p>' +
-			'<p><input type="checkbox" name="yesGuest" id="yesGuest" /><label for="yesGuest">Will be bringing a guest</label></p>' +
-			'<p class="plus-one-container"><input type="text" id="plusOne" name="plusOne" placeholder="Name of guest"/></p>' +
+			'<p class="sub-label">Will you be bringing a guest?</p>' +
+			'<p><input type="radio" name="guest" value="no" id="noGuest" /><label for="noGuest">Won\'t be bringing a guest</label></p>' +
+			'<p><input type="radio" name="guest" value="yes" id="yesGuest" /><label for="yesGuest">Will be bringing a guest</label></p>' +
+			'<p class="sub-text-field"><input type="text" id="plusOne" name="plusOne" placeholder="Name of guest"/></p>' +
 		'</div>';
-	var couplesTemplate = '<p>Check who\'s attending</p>' +
-		'<p data-input-type="couple"><input type="checkbox" name="" /> <label for=""><span class="guestName"></span></label></p>' +
-		'<p data-input-type="couple"><input type="checkbox" name="" /> <label for=""><span class="guestName"></span></label></p>';
-	var submitTemplate = '<p><button id="submit" type="submit">SUBMIT</button>';
+	var couplesTemplate =
+		'<div class="guest-info">' +
+			'<p class="sub-label">Please check who will be attending:</p>' +
+			'<p data-input-type="couple"><input type="checkbox" name="" /> <label for=""><span class="guestName"></span></label></p>' +
+			'<p data-input-type="couple"><input type="checkbox" name="" /> <label for=""><span class="guestName"></span></label></p>' +
+		'</div>';
+	var submitTemplate = '<button type="submit">SUBMIT</button>';
 
 	$.ajax({
 		dataType: 'json',
@@ -72,19 +79,19 @@ var Rsvp = function() {
 
 		if (rsvp.searchSimpleList(name, rsvp.numGuestsList)) {
 			$(formInner).addClass('flipped');
-			$('#rsvpGreetingName').html(firstName);
-			$('#submitRsvp').html(notAttendingTemplate + numGuestsTemplate + submitTemplate);
+			$('#rsvpGreetingName').html(firstName + '!');
+			$('#submitRsvp').html(attendingTemplate + numGuestsTemplate + submitTemplate);
 		} else if (rsvp.searchSimpleList(name,  rsvp.plusOnesList)) {
 			$(formInner).addClass('flipped');
-			$('#rsvpGreetingName').html(firstName);
-			$('#submitRsvp').html(notAttendingTemplate + plusOneTemplate + submitTemplate);
+			$('#rsvpGreetingName').html(firstName + '!');
+			$('#submitRsvp').html(attendingTemplate + plusOneTemplate + submitTemplate);
 			var $plusOne = $('[data-input-type="plusOne"]');
 			$plusOne.find('label').attr('for', 'plusOne');
 			$plusOne.find('input').attr('id', 'plusOne');
 		} else if (rsvp.searchCouplesList(firstName, lastName, rsvp.couplesList)) {
 			$(formInner).addClass('flipped');
-			$('#rsvpGreetingName').html(firstName);
-			$('#submitRsvp').html(notAttendingTemplate + couplesTemplate + submitTemplate);
+			$('#rsvpGreetingName').html(firstName + '!');
+			$('#submitRsvp').html(attendingTemplate + couplesTemplate + submitTemplate);
 			$('[data-input-type="couple"]').each(function(index) {
 				var guestName = rsvp.couplesList[lastName.toLowerCase()][index];
 				$(this).find('label').html(guestName).attr('for', guestName);
