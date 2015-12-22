@@ -4,6 +4,7 @@
 // Variables
 @import '_variables.less';
 @import '_inputs.less';
+@import '_thanks-a-bunch.less';
 
 // Import Modules
 @import '../_modules/link/link';
@@ -75,12 +76,24 @@ p, input, h1, h2, h3, h4, h5, h6 {
   padding: 0.5em 0;
 }
 
-#rsvp {
+.flower-background {
 	background: @navy;
 	background-image: url('../images/flower-border.png');
 	background-repeat: repeat-x;
 	background-position: 0% 50%;
 	background-size: auto 15%;
+}
+.flower-background-cover {
+	background: linear-gradient(to right, rgba(255,255,255,0) 0%, @navy 15%, @navy 85%, rgba(255,255,255,0) 100%);
+	@media screen and (min-width: @large-phone-min) {
+		background: linear-gradient(to right, rgba(255,255,255,0) 10%, @navy 25%, @navy 75%, rgba(255,255,255,0) 90%);
+	}
+	@media screen and (min-width: @tablet-min) {
+		background: linear-gradient(to right, rgba(255,255,255,0) 10%, @navy 35%, @navy 65%, rgba(255,255,255,0) 90%);
+	}
+}
+#rsvp {
+	&:extend(.flower-background);
 	position: relative;
 }
 

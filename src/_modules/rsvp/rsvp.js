@@ -81,12 +81,14 @@ var Rsvp = function() {
 
 		if (rsvp.searchSimpleList(name, rsvp.numGuestsList)) {
 			$('.family').show();
+			$('.couples, .plus-one').remove();
 			$(formInner).addClass('flipped');
 			$('#rsvpGreetingName').html(firstName + '!');
 			// $('form[name="submitRsvp"]').html(attendingTemplate + numGuestsTemplate + submitTemplate);
 			$('form[name="submitRsvp"]').data('formType', 'family');
 		} else if (rsvp.searchSimpleList(name,  rsvp.plusOnesList)) {
 			$('.plus-one').show();
+			$('.family, .couples').remove();
 			$(formInner).addClass('flipped');
 			$('#rsvpGreetingName').html(firstName + '!');
 			// $('form[name="submitRsvp"]').html(attendingTemplate + plusOneTemplate + submitTemplate);
@@ -96,6 +98,7 @@ var Rsvp = function() {
 			$plusOne.find('input').attr('id', 'plusOne');
 		} else if (rsvp.searchCouplesList(firstName, lastName, rsvp.couplesList)) {
 			$('.couples').show();
+			$('.plus-one, .family').remove();
 			$(formInner).addClass('flipped');
 			$('#rsvpGreetingName').html(firstName + '!');
 			// $('form[name="submitRsvp"]').html(attendingTemplate + couplesTemplate + submitTemplate);

@@ -5,13 +5,7 @@
 }
 .rsvp-container {
 	position: relative;
-	background: linear-gradient(to right, rgba(255,255,255,0) 0%, @navy 15%, @navy 85%, rgba(255,255,255,0) 100%);
-	@media screen and (min-width: @large-phone-min) {
-		background: linear-gradient(to right, rgba(255,255,255,0) 10%, @navy 25%, @navy 75%, rgba(255,255,255,0) 90%);
-	}
-	@media screen and (min-width: @tablet-min) {
-		background: linear-gradient(to right, rgba(255,255,255,0) 10%, @navy 35%, @navy 65%, rgba(255,255,255,0) 90%);
-	}
+	&:extend(.flower-background-cover);
 	width: 100%;
 	.rsvp-outer {
 		display: inline-block;

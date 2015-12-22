@@ -1,8 +1,16 @@
 extends ../_layouts/base
 
 block config
-  //- Correct base url pathing for this page
-  - var baseUrl = '../'
+	//- Correct base url pathing for this page
+	- var baseUrl = '../'
 
 block content
-  p thanks-a-bunch page
+	.centered-content
+		.centered-content-inner
+			.action-container
+				a(href="/") #[i.fa.fa-arrow-left] i wanna see more J&E
+			.thank-you
+				h1 Thanks for your response!
+				p We appreciate you taking the time to respond. We hope you enjoyed visiting our site. If not, there's this "hot/cold" game where you try to find an invisible cow. Go ahead and try it out.
+			.action-container
+				a(href="http://www.findtheinvisiblecow.com/") i wanna find some cows #[i.fa.fa-arrow-right]
