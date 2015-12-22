@@ -1,6 +1,7 @@
 'use strict';
 
 var $ = require('jquery');
+var validator = require('./rsvp-validator');
 
 // Constructor
 var Rsvp = function() {
@@ -12,17 +13,17 @@ var Rsvp = function() {
 		'<p><input type="radio" name="attending" value="no" id="notAttending"/><label for="notAttending">Decline with regret</label></p>' +
 		'<p><input type="radio" name="attending" value="yes" id="attending" /><label for="attending">Accept with excitement</label></p>';
 	var numGuestsTemplate =
-			'<p class="sub-text-field"><input type="number" name="numInParty" placeholder="Number attending in party"/></p>';
+			'<p class="sub-text-field"><input type="number" id="numInParty" name="numInParty" placeholder="Number attending in party" data-required-if="attending,yes"/></p>';
 	var plusOneTemplate =
 		'<div class="guest-info">' +
-			'<p><input type="radio" name="guest" value="no" id="noGuest" /><label for="noGuest">Won\'t be bringing a guest</label></p>' +
+			'<p><input type="radio" name="guest" value="no" id="noGuest" data-required-if="attending,yes" data-error-container="error-container"/><label for="noGuest">Won\'t be bringing a guest</label></p>' +
 			'<p><input type="radio" name="guest" value="yes" id="yesGuest" /><label for="yesGuest">Will be bringing a guest</label></p>' +
 			'<p class="sub-text-field"><input type="text" id="plusOne" name="plusOne" placeholder="Name of guest"/></p>' +
 		'</div>';
 	var couplesTemplate =
 		'<div class="guest-info">' +
 			'<p class="sub-label">Please check who will be attending:</p>' +
-			'<p data-input-type="couple"><input type="checkbox" name="" /> <label for=""><span class="guestName"></span></label></p>' +
+			'<p data-input-type="couple"><input type="checkbox" name="" data-required-if="attending,yes" data-error-container="error-container"/> <label for=""><span class="guestName"></span></label></p>' +
 			'<p data-input-type="couple"><input type="checkbox" name="" /> <label for=""><span class="guestName"></span></label></p>' +
 		'</div>';
 	var submitTemplate = '<button type="submit">SUBMIT</button>';
@@ -80,10 +81,12 @@ var Rsvp = function() {
 			$(formInner).addClass('flipped');
 			$('#rsvpGreetingName').html(firstName + '!');
 			$('#submitRsvp').html(attendingTemplate + numGuestsTemplate + submitTemplate);
+			$('#submitRsvp').data('formType', 'family');
 		} else if (rsvp.searchSimpleList(name,  rsvp.plusOnesList)) {
 			$(formInner).addClass('flipped');
 			$('#rsvpGreetingName').html(firstName + '!');
 			$('#submitRsvp').html(attendingTemplate + plusOneTemplate + submitTemplate);
+			$('#submitRsvp').data('formType', 'plus-one');
 			var $plusOne = $('[data-input-type="plusOne"]');
 			$plusOne.find('label').attr('for', 'plusOne');
 			$plusOne.find('input').attr('id', 'plusOne');
@@ -91,6 +94,7 @@ var Rsvp = function() {
 			$(formInner).addClass('flipped');
 			$('#rsvpGreetingName').html(firstName + '!');
 			$('#submitRsvp').html(attendingTemplate + couplesTemplate + submitTemplate);
+			$('#submitRsvp').data('formType', 'couple');
 			$('[data-input-type="couple"]').each(function(index) {
 				var guestName = rsvp.couplesList[lastName.toLowerCase()][index];
 				$(this).find('label').html(guestName).attr('for', guestName);
@@ -105,6 +109,14 @@ var Rsvp = function() {
 
 	$('.back').on('click', function() {
 		$('.rsvp-inner').removeClass('flipped');
+	});
+
+	$('#submitRsvp').on('submit', function(e) {
+		// e.preventDefault();
+		if (validator.validateForm(this) !== false) {
+			return true;
+		}
+		return false;
 	});
 };
 
