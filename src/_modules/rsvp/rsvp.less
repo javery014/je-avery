@@ -6,22 +6,18 @@
 .rsvp-container {
 	position: relative;
 	background: linear-gradient(to right, rgba(255,255,255,0) 0%, @navy 15%, @navy 85%, rgba(255,255,255,0) 100%);
-	@media screen and (min-width: @tablet-min) {
-		background: linear-gradient(to right, rgba(255,255,255,0) 10%, @navy 35%, @navy 65%, rgba(255,255,255,0) 90%);
-	}
 	@media screen and (min-width: @large-phone-min) {
 		background: linear-gradient(to right, rgba(255,255,255,0) 10%, @navy 25%, @navy 75%, rgba(255,255,255,0) 90%);
 	}
-	top: 25%;
-	left: 0;
-	height: 50%;
+	@media screen and (min-width: @tablet-min) {
+		background: linear-gradient(to right, rgba(255,255,255,0) 10%, @navy 35%, @navy 65%, rgba(255,255,255,0) 90%);
+	}
 	width: 100%;
 	.rsvp-outer {
 		display: inline-block;
 		width: 100%;
 		max-width: 300px;
 		height: 100%;
-		max-height: 500px;
 		text-align: left;
 		overflow: hidden;
 		perspective: 800px;
@@ -35,6 +31,7 @@
 			transition: transform 1s;
 			transform-origin: right center;
 			#firstPage {
+				padding: 0px 20px;
 				position: absolute;
 				text-align: center;
 				width: 100%;
