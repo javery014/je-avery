@@ -42,13 +42,31 @@
 				height: 100%;
 				display: inline-block;
 				background-color: @navy;
+				color: @white;
 				backface-visibility: hidden;
 				transform: rotateY(180deg);
-				h2 {
-					color: @peach;
+				padding: 0px 20px;
+				.guest-info {
+					padding-left: 40px;
+					.plus-one-container {
+						padding-left: 20px;
+					}
+					p {
+						line-height: 1em;
+					}
 				}
-				p {
-					color: @peach;
+				#rsvpGreeting {
+					text-align: center;
+				}
+				.border {
+					height:2px;
+					width: 100%;
+					transform: scaleX(0.5);
+					background-color: @peach;
+				}
+				#submit {
+					margin-top: 5px;
+					width: 100%;
 				}
 			}
 			&.flipped {

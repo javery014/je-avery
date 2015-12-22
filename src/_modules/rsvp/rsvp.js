@@ -10,12 +10,16 @@ var Rsvp = function() {
 
 	var notAttendingTemplate = '<p><input type="checkbox" name="notAttending" id="notAttending"/><label for="notAttending">Not attending</label></p>';
 	var numGuestsTemplate = '<p><input type="text" name="numInParty" placeholder="Number attending in party"/></p>' ;
-	var plusOneTemplate = '<p><input type="text" name="plusOne" placeholder="Name of guest"/></p>' +
-		'<p data-input-type="plusOne"><input type="checkbox" name="noGuest"/><label for="noGuest">No guest</label>';
+	var plusOneTemplate = '<p><input type="checkbox" name="attending" id="attending" /><label for="attending">Accepts with excitement</label></p>' +
+		'<div class="guest-info">' +
+			'<p><input type="checkbox" name="noGuest" id="noGuest" /><label for="noGuest">Won\'t be bringing a guest</label></p>' +
+			'<p><input type="checkbox" name="yesGuest" id="yesGuest" /><label for="yesGuest">Will be bringing a guest</label></p>' +
+			'<p class="plus-one-container"><input type="text" id="plusOne" name="plusOne" placeholder="Name of guest"/></p>' +
+		'</div>';
 	var couplesTemplate = '<p>Check who\'s attending</p>' +
 		'<p data-input-type="couple"><input type="checkbox" name="" /> <label for=""><span class="guestName"></span></label></p>' +
 		'<p data-input-type="couple"><input type="checkbox" name="" /> <label for=""><span class="guestName"></span></label></p>';
-	var submitTemplate = '<p><button type="submit">SUBMIT</button>';
+	var submitTemplate = '<p><button id="submit" type="submit">SUBMIT</button>';
 
 	$.ajax({
 		dataType: 'json',

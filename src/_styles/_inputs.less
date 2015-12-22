@@ -15,6 +15,7 @@ input {
 	padding: 10px;
 	text-align: center;
 	width: 100%;
+	color: @blackish;
 }
 
 input[type="checkbox"] {
@@ -23,17 +24,20 @@ input[type="checkbox"] {
 	+label::before {
 		font-family: FontAwesome;
 		display: inline-block;
-		content: "\f096";
-		padding-right: 10px;
+		content: "";
+		width: 1.1em;
+		height: 1.1em;
+		margin-right: 10px;
+		border-radius: 2px;
+		border: 1px solid @peach;
 		font-size: @large-font;
-		color: @white;
+		color: @peach;
+		background-color: @white;
+		vertical-align: middle;
 	}
 	&:checked + label::before {
-		content: '\f046';
-		padding-right: 9px;
+		content: '\f00c';
+		background-color: @white;
+		color: @peach;
 	}
-}
-
-label {
-	color: @peach;
 }
