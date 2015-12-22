@@ -12,7 +12,7 @@ var Rsvp = function() {
 		'<p><input type="radio" name="attending" value="no" id="notAttending"/><label for="notAttending">Declines with regret</label></p>' +
 		'<p><input type="radio" name="attending" value="yes" id="attending" /><label for="attending">Accepts with excitement</label></p>';
 	var numGuestsTemplate =
-			'<p class="sub-text-field"><input type="text" name="numInParty" placeholder="Number attending in party"/></p>';
+			'<p class="sub-text-field"><input type="number" name="numInParty" placeholder="Number attending in party"/></p>';
 	var plusOneTemplate =
 		'<div class="guest-info">' +
 			'<p class="sub-label">Will you be bringing a guest?</p>' +
