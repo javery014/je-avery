@@ -4,9 +4,13 @@ var rsvpValidator;
 var $ = require('jquery');
 
 // Constructor
-var RsvpValidator = function() {
+var RsvpValidator = function(form) {
   this.name = 'section';
   rsvpValidator = this;
+  $('#submitRsvp').on('change', function() {
+  	$('#error-container').html('');
+  });
+
 };
 
 RsvpValidator.prototype.checkAttending = function($inputs, form) {
