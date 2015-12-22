@@ -19,17 +19,40 @@ mixin rsvp(spec)
 					h2#rsvpGreeting Hello&nbsp;
 						span#rsvpGreetingName
 					.border
-					form(name="submitRsvp" action="thank-you" netlify)
+					form(name="submitRsvp" action="thanks-a-bunch" netlify)
+						input(type="hidden" id="name" name="name" value="")
 						p
 							input(type="radio" name="attending" value="no" id="notAttending")
 							label(for="notAttending") Decline with regret
 						p
 							input(type="radio" name="attending" value="yes" id="attending")
 							label(for="attending") Accept with excitement
-						p.sub-text-field
-							input(type="number" id="numInParty" name="numInParty" placeholder="Number attending in party" data-required-if="attending,yes")
-						p
-							button SUBMIT
+						.family
+							p.sub-text-field
+								input(type="number" id="numInParty" name="numInParty" placeholder="Number attending in party" data-required-if="attending,yes")
+							p
+						.plus-one
+							.guest-info
+								p
+									input(type="radio" name="guest" value="no" id="noGuest" data-required-if="attending,yes" data-error-container="error-container")
+									label(for="noGuest") Won't be bringing a guest
+								p
+									input(type="radio" name="guest" value="yes" id="yesGuest")
+									label(for="yesGuest") Will be bringing a guest
+								p.sub-text-field
+									input(type="text" id="plusOne" name="plusOne" placeholder="Name of guest")
+						.couples
+							.guest-info
+								p.sub-label Please check who will be attending:
+								p(data-input-type="couple")
+									input(type="checkbox" name="" data-required-if="attending,yes" data-error-container="error-container")
+									label(for="")
+										span.guestName
+								p(data-input-type="couple")
+									input(type="checkbox" name="")
+									label(for="")
+										span.guestName
+						button SUBMIT
 					#error-container
 					form(name="contact" action="thank-you" netlify)
 						p
