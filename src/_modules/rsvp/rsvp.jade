@@ -20,6 +20,16 @@ mixin rsvp(spec)
 						span#rsvpGreetingName
 					.border
 					form(name="submitRsvp" action="thank-you" netlify)
+						p
+							input(type="radio" name="attending" value="no" id="notAttending")
+							label(for="notAttending") Decline with regret
+						p
+							input(type="radio" name="attending" value="yes" id="attending")
+							label(for="attending") Accept with excitement
+						p.sub-text-field
+							input(type="number" id="numInParty" name="numInParty" placeholder="Number attending in party" data-required-if="attending,yes")
+						p
+							button SUBMIT
 					#error-container
 					form(name="contact" action="thank-you" netlify)
 						p

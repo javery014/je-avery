@@ -80,7 +80,7 @@ var Rsvp = function() {
 		if (rsvp.searchSimpleList(name, rsvp.numGuestsList)) {
 			$(formInner).addClass('flipped');
 			$('#rsvpGreetingName').html(firstName + '!');
-			$('form[name="submitRsvp"]').html(attendingTemplate + numGuestsTemplate + submitTemplate);
+			// $('form[name="submitRsvp"]').html(attendingTemplate + numGuestsTemplate + submitTemplate);
 			$('form[name="submitRsvp"]').data('formType', 'family');
 		} else if (rsvp.searchSimpleList(name,  rsvp.plusOnesList)) {
 			$(formInner).addClass('flipped');
