@@ -56,11 +56,10 @@ var Rsvp = function() {
 	};
 
 	this.searchCouplesList = function(firstName, lastName, list) {
-		var cLastNames = Object.keys(list);
 		var found = false;
-		cLastNames.forEach(function(cLastName, index, array) {
-			if (lastName.toLowerCase() === cLastName.toLowerCase() &&
-				rsvp.searchSimpleList(firstName + ' ' + lastName, list[cLastName])) {
+		list.forEach(function(cName, index, array) {
+			var couple = cName.split(', ');
+			if (couple[0] === (firstName + " " + lastName) || couple[1] === (firstName + " " + lastName)) {
 				found = true;
 			}
 		});
@@ -84,15 +83,15 @@ var Rsvp = function() {
 			$('.couples, .plus-one').remove();
 			$(formInner).addClass('flipped');
 			$('#rsvpGreetingName').html(firstName + '!');
-			// $('form[name="submitRsvp"]').html(attendingTemplate + numGuestsTemplate + submitTemplate);
 			$('form[name="submitRsvp"]').data('formType', 'family');
 		} else if (rsvp.searchSimpleList(name,  rsvp.plusOnesList)) {
 			$('.plus-one').show();
 			$('.family, .couples').remove();
 			$(formInner).addClass('flipped');
 			$('#rsvpGreetingName').html(firstName + '!');
-			// $('form[name="submitRsvp"]').html(attendingTemplate + plusOneTemplate + submitTemplate);
 			$('form[name="submitRsvp"]').data('formType', 'plus-one');
+
+
 			var $plusOne = $('[data-input-type="plusOne"]');
 			$plusOne.find('label').attr('for', 'plusOne');
 			$plusOne.find('input').attr('id', 'plusOne');
@@ -101,10 +100,19 @@ var Rsvp = function() {
 			$('.plus-one, .family').remove();
 			$(formInner).addClass('flipped');
 			$('#rsvpGreetingName').html(firstName + '!');
-			// $('form[name="submitRsvp"]').html(attendingTemplate + couplesTemplate + submitTemplate);
 			$('form[name="submitRsvp"]').data('formType', 'couple');
+
+			// Find the couple
+			var couple;
+			rsvp.couplesList.forEach(function(value, index, array) {
+				if (value.contains(firstName.toLowerCase() + " " + lastName.toLowerCase())) {
+					couple = value.split(', ');
+				}
+			});
+
+			// Populate the checkboxes for the names of the couple
 			$('[data-input-type="couple"]').each(function(index) {
-				var guestName = rsvp.couplesList[lastName.toLowerCase()][index];
+				var guestName = couple[index];
 				$(this).find('label').html(guestName).attr('for', guestName);
 				$(this).find('input').attr('name', guestName).attr('id', guestName);
 			});

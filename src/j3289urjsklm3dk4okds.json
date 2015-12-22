@@ -2,21 +2,60 @@
 	"numGuests": [
 		"Sandy Avery",
 		"Jeff Avery",
-		"Roger Salzman",
-		"Renee Salzman"
+		"Derek O'Sullivan",
+		"Melanie O'Sullivan",
+		"Zach Smith",
+		"Lindsay Smith",
+		"Jay Mueller",
+		"Lauren Mueller",
+		"Bryan Blackall",
+		"Hannah Thompson",
+		"Darren McManus",
+		"Samantha McManus",
+		"Kira McManus"
 	],
 	"plusOne": [
 		"Shannon Larson",
-		"Esther Lundmark"
+		"Esther Lundmark",
+		"Christine Halweg",
+		"Austin Halweg",
+		"Adam Copeland",
+		"Brett Trafton",
+		"Bridgette Trafton",
+		"Allen Salzman",
+		"Henry Salzman",
+		"Kristy Iperlaan",
+		"Tara Schmidt",
+		"Mike Williams",
+		"Wes Siscoe",
+		"Adam Schick",
+		"Lance Hays",
+		"Megan Clarke"
 	],
-	"couples": {
-		"glenn": [
-			"Kyan Glenn",
-			"Courtney Glenn"
-		],
-		"deyoung": [
-			"Ryan Deyoung",
-			"Terese Deyoung"
-		]
-	}
+	"couples": [
+		"kyan glenn, courtney glenn",
+		"ryan deyoung, terese deyoung",
+		"roger salzman, renee salzman",
+		"joshua mendoza, megan grandstaff",
+		"marc anders, jenna grousnick",
+		"kelsey stupica, kenan raddawi",
+		"nick wangler, katie wangler",
+		"jack halweg, chelsea halweg",
+		"brian van heck, emmaleigh halweg",
+		"nicholas bibeau, brittany armstrong",
+		"bill trafton, karen trafton",
+		"george salzman, kate salzman",
+		"harisson salzman, marlene salzman",
+		"nick pacholski, amy pacholski",
+		"nate eilders, megan eilders",
+		"clay bass, alyssa bass",
+		"preston eilders, jade eilders",
+		"john hines, helen hines",
+		"john chambers, kim chambers",
+		"jake harrell, katie harrell",
+		"cory reece, nora reece",
+		"sam zigterman, elizabeth zigterman",
+		"chad gallagher, tammy gallagher",
+		"jonas chrettienne, casey chrettiene"
+	]
 }
