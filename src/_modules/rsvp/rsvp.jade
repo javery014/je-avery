@@ -19,6 +19,18 @@ mixin rsvp(spec)
 					h2#rsvpGreeting Hello&nbsp;
 						span#rsvpGreetingName
 					.border
-					form(id="submitRsvp" name="submitRsvp" netlify action="thank-you")
+					form(id="submitRsvp" name="submitRsvp" action="index.html" netlify)
 					#error-container
+					form(name="contact" action="thank-you" netlify)
+						p
+							label Your Name:
+							input(type="text" name="name")
+						p
+							label Your Email
+							input(type="email" name="email")
+						p
+							label Message
+							textarea(name="message")
+						p
+							<button>Send
 
