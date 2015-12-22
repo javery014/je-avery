@@ -7,7 +7,7 @@ var $ = require('jquery');
 var RsvpValidator = function(form) {
   this.name = 'section';
   rsvpValidator = this;
-  $('#submitRsvp').on('change', function() {
+  $('form[name="submitRsvp"]').on('change', function() {
   	$('#error-container').html('');
   });
 

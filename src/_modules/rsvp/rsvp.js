@@ -80,21 +80,21 @@ var Rsvp = function() {
 		if (rsvp.searchSimpleList(name, rsvp.numGuestsList)) {
 			$(formInner).addClass('flipped');
 			$('#rsvpGreetingName').html(firstName + '!');
-			$('#submitRsvp').html(attendingTemplate + numGuestsTemplate + submitTemplate);
-			$('#submitRsvp').data('formType', 'family');
+			$('form[name="submitRsvp"]').html(attendingTemplate + numGuestsTemplate + submitTemplate);
+			$('form[name="submitRsvp"]').data('formType', 'family');
 		} else if (rsvp.searchSimpleList(name,  rsvp.plusOnesList)) {
 			$(formInner).addClass('flipped');
 			$('#rsvpGreetingName').html(firstName + '!');
-			$('#submitRsvp').html(attendingTemplate + plusOneTemplate + submitTemplate);
-			$('#submitRsvp').data('formType', 'plus-one');
+			$('form[name="submitRsvp"]').html(attendingTemplate + plusOneTemplate + submitTemplate);
+			$('form[name="submitRsvp"]').data('formType', 'plus-one');
 			var $plusOne = $('[data-input-type="plusOne"]');
 			$plusOne.find('label').attr('for', 'plusOne');
 			$plusOne.find('input').attr('id', 'plusOne');
 		} else if (rsvp.searchCouplesList(firstName, lastName, rsvp.couplesList)) {
 			$(formInner).addClass('flipped');
 			$('#rsvpGreetingName').html(firstName + '!');
-			$('#submitRsvp').html(attendingTemplate + couplesTemplate + submitTemplate);
-			$('#submitRsvp').data('formType', 'couple');
+			$('form[name="submitRsvp"]').html(attendingTemplate + couplesTemplate + submitTemplate);
+			$('form[name="submitRsvp"]').data('formType', 'couple');
 			$('[data-input-type="couple"]').each(function(index) {
 				var guestName = rsvp.couplesList[lastName.toLowerCase()][index];
 				$(this).find('label').html(guestName).attr('for', guestName);
@@ -111,7 +111,7 @@ var Rsvp = function() {
 		$('.rsvp-inner').removeClass('flipped');
 	});
 
-	$('#submitRsvp').on('submit', function(e) {
+	$('form[name="submitRsvp"]').on('submit', function(e) {
 		// e.preventDefault();
 		if (validator.validateForm(this) !== false) {
 			return true;
