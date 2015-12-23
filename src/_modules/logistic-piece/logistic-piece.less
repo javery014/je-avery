@@ -1,6 +1,6 @@
 // logistic-piece styles
 .logistic-piece {
-	display: inline-block;
+	display: block;
 	position: relative;
 	.logistic-body {
 		display: inline-block;
@@ -25,17 +25,39 @@
 	}
 }
 .logistic-piece + .logistic-piece {
-	padding-left: 6em;
+	padding-top: 10vw;
 	&::before {
 		content: '';
 		position: absolute;
-		left: 0;
-		bottom: 15px;
-		top: 15px;
-		width: 1px;
+		left: 25%;
+		right: 25%;
+		top: 0px;
+		height: 1px;
 		background: @blackish;
-		margin-left: 3em;
+		margin-top: 5vw;
 		background-color: @gray-dark;
+	}
+}
+@media screen and (min-width: @large-phone-min) {
+	.logistic-piece {
+		display: inline-block;
+	}
+	.logistic-piece + .logistic-piece {
+		padding-left: 10vw;
+		padding-top: 0;
+		&::before {
+			content: '';
+			position: absolute;
+			left: 0;
+			bottom: 15px;
+			top: 15px;
+			width: 1px;
+			background: @blackish;
+			margin-left: 5vw;
+			margin-top: 0;
+			height: auto;
+			background-color: @gray-dark;
+		}
 	}
 }
 	// .logistic-piece:nth-child(3) {
