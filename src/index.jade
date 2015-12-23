@@ -29,19 +29,29 @@ block content
 		section#venue
 			.header-container
 				h1.light-peach-shadow THE#[br/]VENUE
-			.logistics-container
-				+logistic-piece({title: 'Ceremony', content: [
-					{time: '4:30 PM', location: 'Old Central Church', addressLine1: '15 S. Richards Street', addressLine2: 'Joliet, IL 60433'},
-					]})
-				+logistic-piece({title: 'Reception', content: [
-					{time: '5:30 PM', location: 'Victorian Ballroom', addressLine1: '15 S. Richards Street', addressLine2: 'Joliet, IL 60433'}
-					]})
-				+logistic-piece({title: 'Hotels', content: [
-					{time: 'Overnight', location: 'Old Central Church', addressLine1: '15 Richards Street', addressLine2: 'Joliet, IL 60433'}
-					]})
-				+logistic-piece({title: 'Hotels', content: [
-					{time: 'Overnight', location: 'Old Central Church', addressLine1: '15 Richards Street', addressLine2: 'Joliet, IL 60433'}
-					]})
+			.venue-info
+				h2.light-peach-shadow Celebration
+				p
+					| The day's events will be held on the grounds of the Jacob Henry Mansion Estate in downtown Joliet, IL. The ceremony will be held at the Old Central Church. A social hour with cocktails will immediately follow in the Gathering Room connected to the church, while the wedding parties take pictures. The reception will then begin at 6:00 in the Victorian Ballroom.
+				.logistics-container
+					+logistic-piece({title: 'Ceremony', content: [
+						{time: '4:30 PM', location: 'Old Central Church', addressLine1: '15 S. Richards Street', addressLine2: 'Joliet, IL 60433'},
+						]})
+					+logistic-piece({title: 'Reception', content: [
+						{time: '6:00 PM', location: 'Victorian Ballroom', addressLine1: '15 S. Richards Street', addressLine2: 'Joliet, IL 60433'}
+						]})
+				h2.light-peach-shadow Hotels
+				p
+					| We have a block of rooms at the Hampton Inn and Marriott TownPlace Suites for those wishing to stay the night before and/or the night of the wedding. You can either call the number listed to book your room, or follow the link to do so online. Please make your reservations by March 2nd, 2016.
+				.logistics-container
+					+logistic-piece({title: 'Option 1', content: [
+						{location: 'Hampton Inn', url: 'http://hamptoninn.hilton.com/en/hp/groups/personalized/J/JOLRBHX-SAW-20160402/index.jhtml?WT.mc_id=POG', phone: '(815) 725-2424', addressLine1: '1521 Riverboat Center Drive', addressLine2: 'Joliet, IL 60433'},
+						]})
+					+logistic-piece({title: 'Option 2', content: [
+						{location: 'Marriott TownPlace Suites', url: 'http://cwp.marriott.com/mdwts/salzmanaverywedding', phone: '(815) 741-2400', addressLine1: '1515 Riverboat Center Drive', addressLine2: 'Joliet, IL 60433'}
+						]})
+
+
 		section#registry
 		section#rsvp
 			+rsvp()

@@ -10,3 +10,6 @@ mixin logistic-piece(spec)
 				p.time= piece.time
 				p.location= piece.location
 				p.address #{piece.addressLine1}#[br/]#{piece.addressLine2}
+				p.phone #{piece.phone}
+					if piece.url
+						#[br/]#[a(href="#{piece.url}") Book online]

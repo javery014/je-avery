@@ -41,17 +41,17 @@ html, body {
 	}
 }
 
-h1 {
-	&.peach-shadow {
-		text-shadow: -3px 2px @peach;
-	}
-	&.light-peach-shadow {
-		text-shadow: -3px 2px @light-peach;
-	}
+.peach-shadow {
+	text-shadow: -.1em 0.05em @peach;
 }
+.light-peach-shadow {
+	text-shadow: -.1em 0.05em @light-peach;
+}
+
 
 h2 {
 	font-size: 2em;
+	font-style: italic;
 }
 
 p, input, h1, h2, h3, h4, h5, h6 {
@@ -163,8 +163,21 @@ p, input, h1, h2, h3, h4, h5, h6 {
 }
 
 #venue {
-	.logistics-container {
-		margin-top: 50px;
-		margin-bottom: 50px;
+	.venue-info {
+		max-width: 600px;
+		text-align: left;
+		margin: 0 auto;
+		h2 {
+			color: @peach;
+			font-weight: 100;
+		}
+		> p {
+			text-align: justify;
+		}
+		.logistics-container {
+			text-align: center;
+			margin-top: 50px;
+			margin-bottom: 50px;
+		}
 	}
 }
