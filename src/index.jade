@@ -6,6 +6,7 @@ include _modules/section/section
 include _modules/nav-element/nav-element
 include _modules/book/book
 include _modules/rsvp/rsvp
+include _modules/logistic-piece/logistic-piece
 
 block content
 	+nav()
@@ -24,9 +25,23 @@ block content
 			.header-container
 				h1.light-peach-shadow OUR#[br/]STORY
 			+book()
+			.colored-flowers
 		section#venue
 			.header-container
 				h1.light-peach-shadow THE#[br/]VENUE
+			.logistics-container
+				+logistic-piece({title: 'Ceremony', content: [
+					{time: '4:30 PM', location: 'Old Central Church', addressLine1: '15 S. Richards Street', addressLine2: 'Joliet, IL 60433'},
+					]})
+				+logistic-piece({title: 'Reception', content: [
+					{time: '5:30 PM', location: 'Victorian Ballroom', addressLine1: '15 S. Richards Street', addressLine2: 'Joliet, IL 60433'}
+					]})
+				+logistic-piece({title: 'Hotels', content: [
+					{time: 'Overnight', location: 'Old Central Church', addressLine1: '15 Richards Street', addressLine2: 'Joliet, IL 60433'}
+					]})
+				+logistic-piece({title: 'Hotels', content: [
+					{time: 'Overnight', location: 'Old Central Church', addressLine1: '15 Richards Street', addressLine2: 'Joliet, IL 60433'}
+					]})
 		section#registry
 		section#rsvp
 			+rsvp()

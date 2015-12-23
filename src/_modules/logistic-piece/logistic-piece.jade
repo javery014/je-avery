@@ -1,0 +1,12 @@
+mixin logistic-piece(spec)
+	- spec = spec || {}
+	- spec.__class = (spec.__class || '') + ' logistic-piece'
+
+	div(class=spec.__class)&attributes(attributes)
+		each piece in spec.content
+			.logistic-body
+				i.fa.fa-map-marker
+				p.logistic-title= spec.title
+				p.time= piece.time
+				p.location= piece.location
+				p.address #{piece.addressLine1}#[br/]#{piece.addressLine2}

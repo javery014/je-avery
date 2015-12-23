@@ -1,0 +1,59 @@
+// logistic-piece styles
+.logistic-piece {
+	display: inline-block;
+	position: relative;
+	.logistic-body {
+		display: inline-block;
+		.logistic-title {
+			font-family: @fancy-label-font;
+			text-transform: uppercase;
+			font-size: 1.5em;
+			margin: 0.5em 0;
+		}
+		.logistic-description {
+			max-width: 200px;
+			margin: 0 auto;
+		}
+		.fa-map-marker {
+			display: block;
+			color: @peach;
+			font-size: 3em;
+		}
+		.time {
+			color: @peach;
+		}
+	}
+}
+.logistic-piece + .logistic-piece {
+	padding-left: 8em;
+	&::before {
+		content: '';
+		position: absolute;
+		left: 0;
+		bottom: 15px;
+		top: 15px;
+		width: 1px;
+		background: @blackish;
+		margin-left: 4em;
+		background-color: @gray-dark;
+	}
+}
+	// .logistic-piece:nth-child(3) {
+	// 	display: block;
+	// }
+// @media screen and (min-width: @large-phone-min) {
+// 	.logistic-piece:nth-child(2) {
+// 		padding-right: 8em;
+// 		&::after {
+// 			content: '';
+// 			position: absolute;
+// 			right: 0;
+// 			bottom: 15px;
+// 			top: 15px;
+// 			width: 1px;
+// 			background: @blackish;
+// 			margin-right: 4em;
+// 			background-color: @gray-dark;
+// 		}
+// 	}
+// }
