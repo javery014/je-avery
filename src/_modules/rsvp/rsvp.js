@@ -59,7 +59,7 @@ var Rsvp = function() {
 		var found = false;
 		list.forEach(function(cName, index, array) {
 			var couple = cName.split(', ');
-			if (couple[0] === (firstName + " " + lastName) || couple[1] === (firstName + " " + lastName)) {
+			if (couple[0] === (firstName.toLowerCase() + " " + lastName.toLowerCase()) || couple[1] === (firstName.toLowerCase() + " " + lastName.toLowerCase())) {
 				found = true;
 			}
 		});
