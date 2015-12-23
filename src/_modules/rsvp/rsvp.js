@@ -117,7 +117,7 @@ var Rsvp = function() {
 				$(this).find('input').attr('name', guestName).attr('id', guestName);
 			});
 		} else {
-			alert('not on the list...');
+			alert('Please enter your name as it appears on your invitation');
 		}
 
 		return false;
