@@ -12,7 +12,7 @@ block content
 	+nav()
 	.container
 		section#our-story
-			.img-container
+			.img-container.hero-image
 				.heading
 					span.fancy-label-font the wedding of
 					h1.black-peach-shadow Josh#[span.hero-amp &]Erin
@@ -50,9 +50,11 @@ block content
 					+logistic-piece({title: 'Option 2', content: [
 						{location: 'Marriott TownPlace Suites', url: 'http://cwp.marriott.com/mdwts/salzmanaverywedding', phone: '(815) 741-2400', addressLine1: '1515 Riverboat Center Drive', addressLine2: 'Joliet, IL 60433'}
 						]})
-
-
 		section#registry
 		section#rsvp
 			+rsvp()
+		.img-container.avery-happy-wedding
+			.heading
+				p #AVERYHAPPYWEDDING
+			.delayed-image-load(data-src="images/shoes-{width}{pixel_ratio}.jpg")
 
