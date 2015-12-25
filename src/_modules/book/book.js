@@ -37,6 +37,7 @@ var Book = function(pages) {
 	};
 
 	this.flipLeft = function() {
+		console.log()
 		if (this.spreadNum*2 < this.pages.length && !this.mobile) {
 			var rightPage = this.getPageByPageNum(2*this.spreadNum);
 			this.spreadNum++;
@@ -96,6 +97,7 @@ var Book = function(pages) {
 			this.pages[i].addClass('top');
 		}
 	}
+	console.log(this.pages);
 
 	window.addEventListener('resize', function() {
 		var prev = book.mobile;
