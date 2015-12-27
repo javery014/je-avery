@@ -105,7 +105,8 @@ var Rsvp = function() {
 			// Find the couple
 			var couple;
 			rsvp.couplesList.forEach(function(value, index, array) {
-				if (value.contains(firstName.toLowerCase() + " " + lastName.toLowerCase())) {
+				console.log(value);
+				if (value.indexOf(firstName.toLowerCase() + " " + lastName.toLowerCase()) >= 0) {
 					couple = value.split(', ');
 				}
 			});
