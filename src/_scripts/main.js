@@ -12,6 +12,7 @@ var Book = require('../_modules/book/book');
 var Rsvp = require('../_modules/rsvp/rsvp');
 
 global.tabletMin = 768;
+global.tabletMax = 1024;
 
 $(function() {
   new Link(); // Activate Link modules logic

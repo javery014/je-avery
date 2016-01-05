@@ -7,7 +7,7 @@ var Book = function(pages) {
 	this.pages = pages || [];
 	this.spreadNum = 1;
 	this.currentPage = 1;
-	this.mobile = (window.innerWidth < window.tabletMin);
+	this.tablet = (window.innerWidth < window.tabletMax);
 	this.smoothScrolling = false;
 	this.postSmoothScrolling = false;
 	var book = this;
@@ -23,7 +23,7 @@ var Book = function(pages) {
 	};
 
 	this.flipRight = function() {
-		if (this.spreadNum > 1 && !this.mobile) {
+		if (this.spreadNum > 1 && !this.tablet) {
 			var leftPage = this.getPageByPageNum(2*this.spreadNum - 1);
 			this.spreadNum--;
 			var rightPage = this.getPageByPageNum(2*this.spreadNum);
@@ -37,8 +37,7 @@ var Book = function(pages) {
 	};
 
 	this.flipLeft = function() {
-		console.log()
-		if (this.spreadNum*2 < this.pages.length && !this.mobile) {
+		if (this.spreadNum*2 < this.pages.length && !this.tablet) {
 			var rightPage = this.getPageByPageNum(2*this.spreadNum);
 			this.spreadNum++;
 			var leftPage = this.getPageByPageNum(2*this.spreadNum - 1);
@@ -100,10 +99,10 @@ var Book = function(pages) {
 	console.log(this.pages);
 
 	window.addEventListener('resize', function() {
-		var prev = book.mobile;
-		book.mobile = (window.innerWidth < window.tabletMin);
-		if (prev != book.mobile) {
-			if (book.mobile) {
+		var prev = book.tablet;
+		book.tablet = (window.innerWidth < window.tabletMax);
+		if (prev != book.tablet) {
+			if (book.tablet) {
 				book.currentPage = 2*book.spreadNum -1;
 				book.scrollToPage(book.currentPage);
 			}
