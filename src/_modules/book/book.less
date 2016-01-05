@@ -14,6 +14,7 @@
 	.book-inner {
 		width: 5 * @book-width;
 		height: 100%;
+		background: @light-gray;
 		text-align: left;
 		.left, .right {
 			position: relative;
@@ -26,16 +27,6 @@
 			// border-left: 2px solid gray;
 		}
 	}
-	@media screen and (min-width: @desktop-min) {
-		overflow: unset;
-		border: none;
-		.book-inner {
-			width: 100%;
-			.page + .page {
-				margin-left: 0;
-			}
-		}
-	}
 	@media (min-width: @tablet-min) {
 		overflow-x: scroll;
 		height: @book-height;
@@ -45,16 +36,26 @@
 			}
 		}
 	}
+	@media screen and (min-width: @desktop-min) {
+		// overflow-y: visible;
+		overflow-x: visible;
+		border: none;
+		.book-inner {
+			width: 100%;
+			.page + .page {
+				margin-left: 0;
+			}
+		}
+	}
 }
 
 .page {
 	width: @book-width / 2;
 	display: inline-block;
-	height: 100%;
 	position: relative;
-	min-height: @book-height;
-	margin: 0px;
+	min-height: 100%;
 	background: @light-gray;
+	margin: 0px;
 	padding: 20px 30px;
 	vertical-align: top;
 	&:nth-child(even) {

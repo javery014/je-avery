@@ -34,6 +34,12 @@ var Book = function(pages) {
 		} else if (this.currentPage > 1) {
 			this.currentPage--;
 			this.scrollToPage(this.currentPage);
+			if ($('#' + this.currentPage).height() <= $('.book').height()) {
+				$('.book-inner').css('overflow-y', 'hidden');
+			} else {
+				$('.book-inner').css('overflow-y', 'scroll');
+			}
+			$('.book-inner').scrollTop(0);
 		}
 	};
 
@@ -48,6 +54,12 @@ var Book = function(pages) {
 		} else if (this.currentPage < this.pages.length) {
 			this.currentPage++;
 			this.scrollToPage(this.currentPage);
+			if ($('#' + this.currentPage).height() <= $('.book').height()) {
+				$('.book-inner').css('overflow-y', 'hidden');
+			} else {
+				$('.book-inner').css('overflow-y', 'scroll');
+			}
+			$('.book-inner').scrollTop(0);
 		}
 	};
 
@@ -120,8 +132,6 @@ var Book = function(pages) {
 				element.element.className = 'page';
 				if (element.pageNum === 2*book.spreadNum || element.pageNum === (2*book.spreadNum - 1)) {
 					element.addClass('top');
-				} else if (element.pageNum === 3) {
-					element.addClass('spongebob');
 				}
 			});
 		}
@@ -133,6 +143,11 @@ var Book = function(pages) {
 	} else if (book.tablet) {
 		$('.page').attr('style', '');
 		$('.book-inner').attr('style', '');
+	}
+	if ($('#' + this.currentPage).height() <= $('.book').height()) {
+		$('.book-inner').css('overflow-y', 'hidden');
+	} else {
+		$('.book-inner').css('overflow-y', 'scroll');
 	}
 
 	$('.book').on('scroll', function() {
