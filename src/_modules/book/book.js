@@ -7,7 +7,8 @@ var Book = function(pages) {
 	this.pages = pages || [];
 	this.spreadNum = 1;
 	this.currentPage = 1;
-	this.tablet = (window.innerWidth < window.tabletMax);
+	this.mobile = (window.innerWidth < window.tabletMin);
+	this.tablet = (window.innerWidth < window.tabletMax) && !this.mobile;
 	this.smoothScrolling = false;
 	this.postSmoothScrolling = false;
 	var book = this;
@@ -23,7 +24,7 @@ var Book = function(pages) {
 	};
 
 	this.flipRight = function() {
-		if (this.spreadNum > 1 && !this.tablet) {
+		if (this.spreadNum > 1 && (!this.mobile && !this.tablet)) {
 			var leftPage = this.getPageByPageNum(2*this.spreadNum - 1);
 			this.spreadNum--;
 			var rightPage = this.getPageByPageNum(2*this.spreadNum);
@@ -37,7 +38,7 @@ var Book = function(pages) {
 	};
 
 	this.flipLeft = function() {
-		if (this.spreadNum*2 < this.pages.length && !this.tablet) {
+		if (this.spreadNum*2 < this.pages.length && (!this.mobile && !this.tablet)) {
 			var rightPage = this.getPageByPageNum(2*this.spreadNum);
 			this.spreadNum++;
 			var leftPage = this.getPageByPageNum(2*this.spreadNum - 1);
@@ -54,6 +55,7 @@ var Book = function(pages) {
 		$.smoothScroll({
 			scrollElement: $('.book'),
 			scrollTarget: '#' + pageNum,
+			direction: 'left',
 			beforeScroll: function() {
 				book.smoothScrolling = true;
 			},
@@ -96,12 +98,19 @@ var Book = function(pages) {
 			this.pages[i].addClass('top');
 		}
 	}
-	console.log(this.pages);
 
 	window.addEventListener('resize', function() {
 		var prev = book.tablet;
-		book.tablet = (window.innerWidth < window.tabletMax);
-		if (prev != book.tablet) {
+		book.mobile = (window.innerWidth < window.tabletMin);
+		book.tablet = (window.innerWidth < window.tabletMax) && !book.mobile;
+		if (book.mobile) {
+			$('.page').css('width', $('.book').width());
+			$('.book-inner').css('width', $('.book').width() * 10);
+		} else if (book.tablet) {
+			$('.page').attr('style', '');
+			$('.book-inner').attr('style', '');
+		}
+		if (prev !== book.tablet) {
 			if (book.tablet) {
 				book.currentPage = 2*book.spreadNum -1;
 				book.scrollToPage(book.currentPage);
@@ -111,10 +120,20 @@ var Book = function(pages) {
 				element.element.className = 'page';
 				if (element.pageNum === 2*book.spreadNum || element.pageNum === (2*book.spreadNum - 1)) {
 					element.addClass('top');
+				} else if (element.pageNum === 3) {
+					element.addClass('spongebob');
 				}
 			});
 		}
-	})
+	});
+
+	if (book.mobile) {
+		$('.page').css('width', $('.book').width());
+		$('.book-inner').css('width', $('.book').width() * 10);
+	} else if (book.tablet) {
+		$('.page').attr('style', '');
+		$('.book-inner').attr('style', '');
+	}
 
 	$('.book').on('scroll', function() {
 		if (book.postSmoothScrolling) {
@@ -122,7 +141,7 @@ var Book = function(pages) {
 			return;
 		}
 		if (!book.smoothScrolling) {
-			var scrollPoint = this.scrollTop/400 + 1;
+			var scrollPoint = this.scrollLeft/400 + 1;
 			book.currentPage = (scrollPoint % Math.floor(scrollPoint) > 0.8 ? Math.ceil(scrollPoint) : Math.floor(scrollPoint));
 		}
 	});

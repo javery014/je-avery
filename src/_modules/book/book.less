@@ -1,5 +1,6 @@
 // book styles
 @book-height: 500px;
+@book-height-mobile: 700px;
 @book-width: 900px;
 
 .book {
@@ -8,33 +9,64 @@
 	height: @book-height;
 	position:relative;
 	display:inline-block;
-	overflow: scroll;
-	.left, .right {
-		position: relative;
-		width: 50%;
-		height: @book-height;
-		margin: 0px;
+	overflow-x: hidden;
+	border: 2px solid gray;
+	.book-inner {
+		width: 5 * @book-width;
+		height: 100%;
+		text-align: left;
+		.left, .right {
+			position: relative;
+			width: 50%;
+			height: @book-height;
+			margin: 0px;
+		}
+		.page + .page {
+			margin-left: -4px;
+			// border-left: 2px solid gray;
+		}
 	}
 	@media screen and (min-width: @desktop-min) {
 		overflow: unset;
+		border: none;
+		.book-inner {
+			width: 100%;
+			.page + .page {
+				margin-left: 0;
+			}
+		}
+	}
+	@media (min-width: @tablet-min) {
+		overflow-x: scroll;
+		height: @book-height;
+		.book-inner {
+			.page + .page {
+				border-left: 2px solid gray;
+			}
+		}
 	}
 }
 
 .page {
-	width: 100%;
+	width: @book-width / 2;
+	display: inline-block;
 	height: 100%;
 	position: relative;
 	min-height: @book-height;
 	margin: 0px;
-	border: 2px solid gray;
 	background: @light-gray;
 	padding: 20px 30px;
+	vertical-align: top;
 	&:nth-child(even) {
 		text-align: left;
+	}
+	&:nth-child(odd) {
+		text-align: center;
 	}
 	@media screen and (min-width: @desktop-min) {
 		position: absolute;
 		width: 50%;
+		border: 2px solid gray;
 		&:nth-child(even) {
 			right: 0;
 			border-bottom-right-radius: 5px;
@@ -47,6 +79,9 @@
 			border-top-left-radius: 5px;
 			transform-origin: right;
 		}
+	}
+	@media (min-width: @tablet-min) {
+		height: @book-height;
 	}
 }
 
