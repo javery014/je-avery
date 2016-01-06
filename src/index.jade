@@ -42,7 +42,7 @@ block content
 						]})
 				h2.light-peach-shadow Hotels
 				p
-					| We have a block of rooms at the Hampton Inn and Marriott TownPlace Suites for those wishing to stay the night before and/or the night of the wedding. You can either call the number listed to book your room, or follow the link to do so online. Please make your reservations by March 2nd, 2016.
+					| Erin and Josh have a block of rooms at the Hampton Inn and Marriott TownPlace Suites for those wishing to stay the night before and/or the night of the wedding. You can either call the number listed to book your room, or follow the link to do so online. Please make your reservations by March 2nd, 2016.
 				.logistics-container
 					+logistic-piece({title: 'Option 1', content: [
 						{location: 'Hampton Inn', url: 'http://hamptoninn.hilton.com/en/hp/groups/personalized/J/JOLRBHX-SAW-20160402/index.jhtml?WT.mc_id=POG', phone: '(815) 725-2424', addressLine1: '1521 Riverboat Center Drive', addressLine2: 'Joliet, IL 60433'},
@@ -50,7 +50,19 @@ block content
 					+logistic-piece({title: 'Option 2', content: [
 						{location: 'Marriott TownPlace Suites', url: 'http://cwp.marriott.com/mdwts/salzmanaverywedding', phone: '(815) 741-2400', addressLine1: '1515 Riverboat Center Drive', addressLine2: 'Joliet, IL 60433'}
 						]})
+			.img-container
+				div.delayed-image-load(data-src="images/img-2-{width}{pixel_ratio}.jpg")
 		section#registry
+			.header-container
+				h1.light-peach-shadow REGISTRY
+			.registry-body
+				p
+					| Erin and Josh are registered at Bed Bath & Beyond and Target. To navigate to the registries online, click on either of the images. If you click on the link for our Target registry, you'll have to also click "find", and then search on either "josh avery" or "erin salzman" to pull up the registry.
+				.registry-options
+					a.option(href="http://www.bedbathandbeyond.com/store/giftregistry/view_registry_guest.jsp?pwsToken=&eventType=Wedding&registryId=542836226&pwsurl=")
+						img(src="images/bbb.jpg")
+					a.option(href="http://www.target.com/gift-registry/?lnk=gnav_registries")
+						img(src="images/target.jpg")
 		section#rsvp
 			+rsvp()
 		.img-container.avery-happy-wedding

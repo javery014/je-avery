@@ -199,4 +199,44 @@ p, input, h1, h2, h3, h4, h5, h6 {
 			margin-bottom: 50px;
 		}
 	}
+	.img-container {
+		border-top: 5px solid @navy;
+		border-bottom: 10px solid @peach;
+	}
+}
+
+#registry {
+	.registry-body {
+		max-width: 600px;
+		margin: 0 auto;
+		p {
+			text-align: justify;
+		}
+		.registry-options {
+			margin-top: 50px;
+			.option {
+				width: 250px;
+				vertical-align: middle;
+				display: inline-block;
+				img {
+					width: 100%;
+					display: block;
+					height: auto;
+				}
+				+ .option {
+					margin-top: 40px;
+				}
+			}
+			@media (min-width: 530px) {
+				height: 150px;
+				line-height: 150px;
+				.option {
+					+ .option {
+						margin-left: 40px;
+						margin-top: 0;
+					}
+				}
+			}
+		}
+	}
 }
