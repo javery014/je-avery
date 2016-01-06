@@ -58,11 +58,19 @@
 	margin: 0px;
 	padding: 20px 30px;
 	vertical-align: top;
+	.book-image {
+		overflow: hidden;
+		height: 400px;
+	}
+	&:nth-child(3) {
+		height: 1px;
+	}
 	&:nth-child(even) {
 		text-align: left;
 	}
 	&:nth-child(odd) {
 		text-align: center;
+		height: 100%;
 	}
 	@media screen and (min-width: @desktop-min) {
 		position: absolute;
@@ -89,12 +97,15 @@
 &.spongebob {
 	background-image: url('../images/spongebob-bg.jpg');
 	height: 100%;
+	position: relative;
+	padding: 20px;
 	h3 {
 		font-family: 'Krabby Patty';
 		color: @peach;
 		font-size: 4em;
 		position: absolute;
 		top: 50%;
+		width: 100%;
 		margin: -2em 0 0 0;
 	}
 }
