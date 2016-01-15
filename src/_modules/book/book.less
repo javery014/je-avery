@@ -116,7 +116,11 @@
 	width: 100%;
 	padding: 10px;
 	position: relative;
-	top: 25px;
+	top: 32px;
+	height: 30px;
+	background: white;
+	border-left: 2px solid gray;
+	border-right: 2px solid gray;
 	margin: 0 auto;
 	z-index: 3;
 	max-width: 900px;
@@ -149,6 +153,12 @@
 		&.mobile-paging-controls {
 			display: none;
 		}
+	}
+	@media screen and (min-width: @tablet-min) {
+		background: transparent;
+		border-left: none;
+		border-right: none;
+		top: 25px;
 	}
 }
 

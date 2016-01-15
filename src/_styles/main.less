@@ -154,11 +154,18 @@ p, input, h1, h2, h3, h4, h5, h6 {
 				}
 			}
 		}
+		@media (max-width: @large-phone-min) {
+			.heading {
+				bottom: 0;
+				left: 10px;
+				top: unset;
+				width: unset;
+			}
+		}
 	}
 	&.avery-happy-wedding {
 		border-top: 5px solid @peach;
 		border-bottom: 5px solid @navy;
-		margin-bottom: 50px;
 		.heading {
 			margin-top: -2.5vw;
 			p {
@@ -245,4 +252,25 @@ p, input, h1, h2, h3, h4, h5, h6 {
 	width: 100%;
 	display: block;
 	height: auto;
+}
+
+.credits {
+	text-align: center;
+	padding: 20px 0px;
+	p {
+		margin-bottom: 1px;
+		margin-top: 1px;
+	}
+	.copyright {
+		color: @navy;
+		display: inline-block;
+		border-bottom: 2px solid @navy;
+		margin: 0 -10px;
+		padding-bottom: 5px;
+	}
+	.contrib {
+		color: @peach;
+		border-left: 1px solid @navy;
+		padding-top: 5px;
+	}
 }
