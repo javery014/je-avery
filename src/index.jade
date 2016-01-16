@@ -11,8 +11,7 @@ include _modules/logistic-piece/logistic-piece
 block content
 	+nav()
 	.container
-		section#our-story
-			.img-container.hero-image
+		.img-container.hero-image
 				.heading
 					span.fancy-label-font the wedding of
 					h1.black-peach-shadow Josh#[span.hero-amp &]Erin
@@ -22,6 +21,7 @@ block content
 						.fa.fa-caret-down
 						.fa.fa-caret-down
 				div.delayed-image-load(data-src="images/img-1-{width}{pixel_ratio}.jpg")
+		section#our-story
 			.header-container
 				h1.light-peach-shadow OUR#[br/]STORY
 			+book()
@@ -75,7 +75,7 @@ block content
 					| Copyright 2015
 			.contrib
 				p
-					| Designed by Mike Gorrell
+					| Designed by #[a(href="http://www.gorrelldesign.com" rel="external") Mike Gorrell]
 				p
 					| Built by Josh Avery
 				p
