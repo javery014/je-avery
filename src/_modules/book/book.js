@@ -28,18 +28,17 @@ var Book = function(pages) {
 			var leftPage = this.getPageByPageNum(2*this.spreadNum - 1);
 			this.spreadNum--;
 			var rightPage = this.getPageByPageNum(2*this.spreadNum);
-
-			leftPage.flipRight();
-			rightPage.flipRight();
-		} else if (this.currentPage > 1) {
-			this.currentPage--;
-			if (this.currentPage === 1) {
+			if (this.spreadNum === 1) {
 				$('.page-prev').css('display', 'none');
-			} else if (this.currentPage === this.pages.length) {
+			} else if (this.spreadNum === 5) {
 				$('.page-next').css('display', 'none');
 			} else {
 				$('.page-next, .page-prev').css('display', 'block');
 			}
+			leftPage.flipRight();
+			rightPage.flipRight();
+		} else if (this.currentPage > 1) {
+			this.currentPage--;
 			this.scrollToPage(this.currentPage);
 			if ($('#' + this.currentPage).height() <= $('.book').height()) {
 				$('.book-inner').css('overflow-y', 'hidden');
@@ -47,6 +46,13 @@ var Book = function(pages) {
 				$('.book-inner').css('overflow-y', 'scroll');
 			}
 			$('.book-inner').scrollTop(0);
+			if (this.currentPage === 1) {
+				$('.page-prev').css('display', 'none');
+			} else if (this.currentPage === this.pages.length) {
+				$('.page-next').css('display', 'none');
+			} else {
+				$('.page-next, .page-prev').css('display', 'block');
+			}
 		}
 	};
 
@@ -55,12 +61,24 @@ var Book = function(pages) {
 			var rightPage = this.getPageByPageNum(2*this.spreadNum);
 			this.spreadNum++;
 			var leftPage = this.getPageByPageNum(2*this.spreadNum - 1);
-
+			if (this.spreadNum === 1) {
+				$('.page-prev').css('display', 'none');
+			} else if (this.spreadNum === 5) {
+				$('.page-next').css('display', 'none');
+			} else {
+				$('.page-next, .page-prev').css('display', 'block');
+			}
 			rightPage.flipLeft();
 			leftPage.flipLeft();
 		} else if (this.currentPage < this.pages.length) {
 			this.currentPage++;
 			this.scrollToPage(this.currentPage);
+			if ($('#' + this.currentPage).height() <= $('.book').height()) {
+				$('.book-inner').css('overflow-y', 'hidden');
+			} else {
+				$('.book-inner').css('overflow-y', 'scroll');
+			}
+			$('.book-inner').scrollTop(0);
 			if (this.currentPage === 1) {
 				$('.page-prev').css('display', 'none');
 			} else if (this.currentPage === this.pages.length) {
@@ -68,12 +86,6 @@ var Book = function(pages) {
 			} else {
 				$('.page-next, .page-prev').css('display', 'block');
 			}
-			if ($('#' + this.currentPage).height() <= $('.book').height()) {
-				$('.book-inner').css('overflow-y', 'hidden');
-			} else {
-				$('.book-inner').css('overflow-y', 'scroll');
-			}
-			$('.book-inner').scrollTop(0);
 		}
 	};
 
