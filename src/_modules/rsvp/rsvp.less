@@ -1,8 +1,4 @@
 // rsvp styles
-.rsvp-header {
-	color: white;
-	text-shadow: -3px 2px @navy-peach;
-}
 .rsvp-container {
 	position: relative;
 	&:extend(.flower-background-cover);
@@ -16,6 +12,18 @@
 		overflow: hidden;
 		perspective: 800px;
 		margin: 0 auto;
+		.header-container {
+			.rsvp-header {
+				color: white;
+				text-shadow: -3px 2px @navy-peach;
+				margin: 0;
+			}
+			p {
+				color: white;
+				width: 85%;
+				margin: 10px auto;
+			}
+		}
 		.rsvp-inner {
 			width: 100%;
 			min-height: 400px;

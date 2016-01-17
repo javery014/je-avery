@@ -33,6 +33,13 @@ var Book = function(pages) {
 			rightPage.flipRight();
 		} else if (this.currentPage > 1) {
 			this.currentPage--;
+			if (this.currentPage === 1) {
+				$('.page-prev').css('display', 'none');
+			} else if (this.currentPage === this.pages.length) {
+				$('.page-next').css('display', 'none');
+			} else {
+				$('.page-next, .page-prev').css('display', 'block');
+			}
 			this.scrollToPage(this.currentPage);
 			if ($('#' + this.currentPage).height() <= $('.book').height()) {
 				$('.book-inner').css('overflow-y', 'hidden');
@@ -54,6 +61,13 @@ var Book = function(pages) {
 		} else if (this.currentPage < this.pages.length) {
 			this.currentPage++;
 			this.scrollToPage(this.currentPage);
+			if (this.currentPage === 1) {
+				$('.page-prev').css('display', 'none');
+			} else if (this.currentPage === this.pages.length) {
+				$('.page-next').css('display', 'none');
+			} else {
+				$('.page-next, .page-prev').css('display', 'block');
+			}
 			if ($('#' + this.currentPage).height() <= $('.book').height()) {
 				$('.book-inner').css('overflow-y', 'hidden');
 			} else {
@@ -110,6 +124,7 @@ var Book = function(pages) {
 			this.pages[i].addClass('top');
 		}
 	}
+	$('.page-prev').css('display', 'none');
 
 	window.addEventListener('resize', function() {
 		var prev = book.tablet;

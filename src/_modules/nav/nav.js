@@ -18,8 +18,8 @@ var Nav = function() {
 		} else {
 			$('nav').find('.mobile-logo').css('display', 'block');
 		}
-		$('nav').find('.fa').toggleClass('fa-angle-down');
-		$('nav').find('.fa').toggleClass('fa-angle-up');
+		$('nav').find('.fa').toggleClass('fa-bars');
+		$('nav').find('.fa').toggleClass('fa-close');
 	};
 
 	$('.nav-control').on('click', this.toggleNav);
