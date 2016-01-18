@@ -47,11 +47,13 @@ mixin rsvp(spec)
 							.guest-info
 								p.sub-label Please check who will be attending:
 								p(data-input-type="couple")
-									input(type="checkbox" name="" value="" data-required-if="attending,yes" data-error-container="error-container")
+									input(type="hidden" name="person1" value="")
+									input(type="checkbox" name="person1Attending" data-required-if="attending,yes" data-error-container="error-container")
 									label(for="" class="couple-name")
 										span.guestName
 								p(data-input-type="couple")
-									input(type="checkbox" name="" value="")
+									input(type="hidden" name="person2" value="")
+									input(type="checkbox" name="person2Attending")
 									label(for="" class="couple-name")
 										span.guestName
 						button SUBMIT RSVP

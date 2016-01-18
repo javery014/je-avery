@@ -116,7 +116,8 @@ var Rsvp = function() {
 				var guestName = couple[index];
 				var firstLast = guestName.split(' ');
 				$(this).find('label').html(guestName).attr('for', guestName);
-				$(this).find('input').attr('name', firstLast[0] + '-' + firstLast[1]).attr('id', guestName).attr('value', 'yes');
+				$(this).find('input[type="hidden"]').attr('value', guestName);
+
 			});
 		} else {
 			alert('Please enter your name as it appears on your invitation');
