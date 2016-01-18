@@ -38,6 +38,11 @@ RsvpValidator.prototype.checkCouple = function($inputs, form) {
 RsvpValidator.prototype.validateForm = function(form) {
 	var $inputs = $(form).find('input');
 
+	var attendingCheck = this.checkAttending($inputs, form);
+	if (attendingCheck) {
+		$('#error-container').html('<i class="fa fa-exclamation-circle"></i>&nbsp;' + attendingCheck);
+		return false;
+	}
 	if ($('#attending').is(':checked')) {
 		if ($(form).data('formType') === 'couple') {
 			var guestCheck = this.checkCouple($inputs, form);
