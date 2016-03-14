@@ -3,13 +3,14 @@
 
 'use strict';
 
-var $ = require('jquery');
+var $ = window.$ = window.jQuery = require('jquery');
 var Imager = require('imager.js')
 
 var Link = require('../_modules/link/link');
 var getNav = require('../_modules/nav/nav');
 var Book = require('../_modules/book/book');
 var Rsvp = require('../_modules/rsvp/rsvp');
+var ShuttleModal = require('../_modules/shuttle-modal/shuttle-modal');
 
 global.tabletMin = 768;
 global.tabletMax = 1024;
@@ -19,6 +20,7 @@ $(function() {
   getNav();
   new Book();
   new Rsvp();
+  new ShuttleModal();
   new Imager({
   	availableWidths: [
   		800, 1400
