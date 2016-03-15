@@ -1,0 +1,7 @@
+node_modules
+/bin
+/obj/Debug
+*.log
+*.suo
+/.ntvs_analysis.dat
+*.cmd

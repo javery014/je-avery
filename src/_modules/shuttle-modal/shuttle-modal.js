@@ -6,7 +6,6 @@ var bsModal = require('bootstrap/js/modal.js');
 var Modal = function() {
   this.name = 'Modal';
   $('#shuttle-modal').modal();
-  console.log('run');
 };
 
 module.exports = Modal;
