@@ -1,6 +1,6 @@
 'use strict';
 
-var bsModal = require('./bs-modal.js');
+var bsModal = require('bootstrap/js/modal.js');
 
 // Constructor
 var Modal = function() {
