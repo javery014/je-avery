@@ -1,11 +1,14 @@
 // Normalize Styles
 @import (inline) 'node_modules/normalize.css/normalize.css';
-
+// @import (inline) '../../node_modules/bootstrap/dist/css/bootstrap.css';
+@import '../../node_modules/bootstrap/less/mixins/vendor-prefixes';
+@import '../../node_modules/bootstrap/less/mixins/opacity';
+@import '../../node_modules/bootstrap/less/variables';
+@import '../../node_modules/bootstrap/less/modals';
 // Variables
 @import '_variables.less';
 @import '_inputs.less';
 @import '_thanks-a-bunch.less';
-@import (inline) '../../node_modules/bootstrap/dist/css/bootstrap.css';
 
 // Import Modules
 @import '../_modules/link/link';
@@ -49,7 +52,6 @@ html, body {
 .light-peach-shadow {
 	text-shadow: -.1em 0.05em @light-peach;
 }
-
 
 h2 {
 	font-size: 2em;

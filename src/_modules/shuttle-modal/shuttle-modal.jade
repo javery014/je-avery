@@ -3,9 +3,11 @@ mixin shuttle-modal(config)
 		.modal-dialog
 			.modal-content
 				.modal-header
-					button.close(type="button" data-dismiss="modal" aria-label="Close")
-						span(aria-hidden="true") &times;
-					h4.modal-title We Forgot to Mention...
+					.col-title
+						h4.modal-title We Forgot to Mention...
+					.col-close.text-right
+						button.close.top(type="button" data-dismiss="modal" aria-label="Close")
+							span(aria-hidden="true") &times;
 				.modal-body
 					p
 						| For those who will be staying at a hotel, we will have a shuttle service running back and forth between the two hotels and the venue. It's free! Take advantage! We will have more information about the shuttle service on this site soon. Information will also be available at the front desk of each hotel.
